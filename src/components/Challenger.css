@@ -1,0 +1,61 @@
+.container {
+  width: 400px;
+  height: 400px;
+  vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+.button1 {
+  background-color: green;
+  border-top-left-radius: 100%;
+  border: 5px solid black;
+}
+
+.button1:hover {
+  background-color: lightgreen;
+}
+
+.button2 {
+  background-color: red;
+  border-top-right-radius: 100%;
+  border: 5px solid black;
+}
+
+.button2:hover {
+  background-color: pink;
+}
+
+.button3 {
+  background-color: yellow;
+  border-bottom-left-radius: 100%;
+  border: 5px solid black;
+}
+
+.button3:hover {
+  background-color: lightyellow;
+}
+
+.button4 {
+  background-color: blue;
+  border-bottom-right-radius: 100%;
+  border: 5px solid black;
+}
+
+.button4:hover {
+  background-color: lightblue;
+}
+
+.theMiddle {
+  background-color: white;
+  border-color: black;
+  border-width: 5px;
+  border-style: solid;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  margin-top: 145px;
+  margin-left: 145px;
+  border-radius: 100%;
+}

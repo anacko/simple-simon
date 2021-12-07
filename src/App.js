@@ -1,5 +1,5 @@
 
-import './App.css';
+import './App.scss';
 import Challenger from './components/Challenger';
 
 function App() {

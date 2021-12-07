@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { makeSequence } from '../helpers/makeSequence';
-import './Challenger.css'
+import './Challenger.scss'
 
 const Challenger = function(props) {
 

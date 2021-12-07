@@ -23,7 +23,8 @@ const Challenger = function(props) {
   <p>{props.sequence}</p>
 
   <table className="container">
-    <tr><div className="theMiddle"><h1>{props.stage}</h1></div></tr>
+    <tbody>
+    <tr><td className="theMiddle">{props.stage}</td></tr>
     <tr>
       <td className="button1" id="0" onClick={handleClick}>Button 0</td>
       <td className="button2" id="1" onClick={handleClick}>Button 1</td>
@@ -32,6 +33,7 @@ const Challenger = function(props) {
       <td className="button3" id="2" onClick={handleClick}>Button 2</td>
       <td className="button4" id="3" onClick={handleClick}>Button 3</td>
     </tr>
+    </tbody>
   </table>
 
   </>)

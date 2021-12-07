@@ -4,7 +4,7 @@ import './Challenger.css'
 
 const Challenger = function(props) {
 
-  const [stage, setStage] = useState(3);
+  const [stage, setStage] = useState(1);
   const [sequence, setSequence] = useState(makeSequence(stage));
   const [counter, setCounter] = useState(0);
 
@@ -13,15 +13,21 @@ const Challenger = function(props) {
   }, [stage])
 
   const handleClick = function(event) {
-    const option = Number(event.target.id)
-    option === sequence[counter] ? console.log("yay!") : console.log("nops")
-    setCounter(counter+1)
 
-    if (counter === stage - 1) {
+    if (Number(event.target.id) === sequence[counter]) {
+    //Correct option
+      console.log("yay!")
+      setCounter(counter+1)
+
+      if (counter === stage - 1) {
+        setCounter(0)
+        setStage(stage+1)
+      }
+    } else {
+    // Wrong option
+      console.log("nops")
       setCounter(0)
-      setStage(stage+1)
     }
-    return option
   }
 
   return (<>

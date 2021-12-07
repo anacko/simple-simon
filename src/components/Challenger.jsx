@@ -1,33 +1,36 @@
-import React from "react";
-import { makeSequence } from "../helpers/makeSequence";
+import React, { useEffect, useState } from "react";
 
 import './Challenger.css'
 
 const Challenger = function(props) {
 
-  const sequence = makeSequence(props.stage)
+  let [counter, setCounter] = useState(0)
+
+  const handleClick = function(event) {
+    setCounter(counter++)
+    //const option = Number(event.target.id)
+    //return option
+  }
+
+  useEffect((event) => {
+  },[counter])
 
   return (<>
-  <p>{sequence}</p>
-
-  {/* <container>
-  <div className="button1">Button 1</div>
-  <div className="button2">Button 2</div>
-  <div className="button3">Button 3</div>
-  <div className="button4">Button 4</div>
-  </container> */}
+  <p>{props.sequence}</p>
 
   <table className="container">
-    <div className="theMiddle"></div>
+    <div className="theMiddle"><h1>{props.stage}</h1></div>
     <tr>
-      <td className="button1">Button 1</td>
-      <td className="button2">Button 2</td>
+      <td className="button1" id="0" onClick={handleClick}>Button 0</td>
+      <td className="button2" id="1" onClick={handleClick}>Button 1</td>
     </tr>
     <tr>
-      <td className="button3">Button 3</td>
-      <td className="button4">Button 4</td>
+      <td className="button3" id="2" onClick={handleClick}>Button 2</td>
+      <td className="button4" id="3" onClick={handleClick}>Button 3</td>
     </tr>
   </table>
+
+  <p>{counter}</p>
 
   </>)
 };

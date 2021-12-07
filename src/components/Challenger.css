@@ -52,10 +52,13 @@
   border-color: black;
   border-width: 5px;
   border-style: solid;
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
   position: absolute;
-  margin-top: 145px;
-  margin-left: 145px;
+  margin-top: 130px;
+  margin-left: 130px;
   border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

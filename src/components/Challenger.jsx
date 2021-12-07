@@ -8,8 +8,17 @@ const Challenger = function(props) {
   const [sequence, setSequence] = useState(makeSequence(stage));
   const [counter, setCounter] = useState(0);
 
+  const makeActive = (n, active) => {
+    if(active) {
+      return `button-b${n} active`;
+    } else {
+      return `button-b${n}`
+    }
+  }  
+
   useEffect(() => {
     setSequence(makeSequence(stage));
+
   }, [stage])
 
   const handleClick = function(event) {
@@ -35,14 +44,14 @@ const Challenger = function(props) {
 
   <table className="container">
     <tbody>
-    <tr><td className="theMiddle">{stage}</td></tr>
+    <tr><td className="theMiddle" onClick={() => setCounter(0)}>{stage}</td></tr>
     <tr>
-      <td className="button-b0" id="0" onClick={handleClick}>Button 0</td>
-      <td className="button-b1" id="1" onClick={handleClick}>Button 1</td>
+      <td className={makeActive(0, false)} id="0" onClick={handleClick}>Button 0</td>
+      <td className={makeActive(1, false)} id="1" onClick={handleClick}>Button 1</td>
     </tr>
     <tr>
-      <td className="button-b2" id="2" onClick={handleClick}>Button 2</td>
-      <td className="button-b3" id="3" onClick={handleClick}>Button 3</td>
+      <td className={makeActive(2, false)} id="2" onClick={handleClick}>Button 2</td>
+      <td className={makeActive(3, false)} id="3" onClick={handleClick}>Button 3</td>
     </tr>
     </tbody>
   </table>

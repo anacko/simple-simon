@@ -1,8 +1,10 @@
 $border-stack: 5px solid black;
+$border-size: 5px;
+$challenger-size: 300px;
 
 .container {
-  width: 400px;
-  height: 400px;
+  width: $challenger-size;
+  height: $challenger-size;
   vertical-align: middle;
   margin-left: auto;
   margin-right: auto;
@@ -57,11 +59,11 @@ $border-stack: 5px solid black;
   font-size: 2em;
   background-color: white;
   border: $border-stack;
-  width: 130px;
-  height: 130px;
+  width: $challenger-size/3;
+  height: $challenger-size/3;
   position: absolute;
-  margin-top: 125px;
-  margin-left: 125px;
+  margin-top: $challenger-size/2 - $challenger-size/6 - 1.5*$border-size;
+  margin-left: $challenger-size/2 - $challenger-size/6 - 1.5*$border-size;
   border-radius: 100%;
   display: flex;
   align-items: center;

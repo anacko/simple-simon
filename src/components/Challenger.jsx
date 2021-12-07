@@ -37,12 +37,12 @@ const Challenger = function(props) {
     <tbody>
     <tr><td className="theMiddle">{stage}</td></tr>
     <tr>
-      <td className="button1" id="0" onClick={handleClick}>Button 0</td>
-      <td className="button2" id="1" onClick={handleClick}>Button 1</td>
+      <td className="button-b0" id="0" onClick={handleClick}>Button 0</td>
+      <td className="button-b1" id="1" onClick={handleClick}>Button 1</td>
     </tr>
     <tr>
-      <td className="button3" id="2" onClick={handleClick}>Button 2</td>
-      <td className="button4" id="3" onClick={handleClick}>Button 3</td>
+      <td className="button-b2" id="2" onClick={handleClick}>Button 2</td>
+      <td className="button-b3" id="3" onClick={handleClick}>Button 3</td>
     </tr>
     </tbody>
   </table>

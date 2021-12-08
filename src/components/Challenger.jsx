@@ -37,6 +37,12 @@ const Challenger = function(props) {
     }
   }
 
+  const resetGame = function() {
+    clearTimeout();
+    setCounter(0);
+    setStage(1)
+  }
+
   return (<>
     <table className="container">
       <tbody>
@@ -51,6 +57,7 @@ const Challenger = function(props) {
       </tr>
       </tbody>
     </table>
+    <button onClick={() => resetGame()}>Reset Game</button>
   </>)
 };
 

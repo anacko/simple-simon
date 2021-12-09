@@ -28,7 +28,11 @@ $challenger-size: 300px;
     background-color: #008000;
     border-top-left-radius: 100%;
     
-    &:hover, &.active {
+    &:hover {
+      background-color: #00cc00;
+    }
+
+    &.active {
       background-color: #00ff00;
     }
   }
@@ -38,7 +42,10 @@ $challenger-size: 300px;
     background-color: #800000;
     border-top-right-radius: 100%;
     
-    &:hover, &.active {
+    &:hover {
+      background-color: #cc0000;
+    }
+    &.active {
       background-color: #ff0000;
     }
   }
@@ -48,7 +55,10 @@ $challenger-size: 300px;
     background-color: #808000;
     border-bottom-left-radius: 100%;
     
-    &:hover, &.active {
+    &:hover {
+      background-color: #cccc00;
+    }
+    &.active {
       background-color: #ffff00;
     }
   }
@@ -58,8 +68,11 @@ $challenger-size: 300px;
     background-color: #000080;
     border-bottom-right-radius: 100%;
     
-    &:hover, &.active {
-      background-color: #0000FF;
+    &:hover {
+      background-color: #0000cc;
+    }
+    &.active {
+      background-color: #0000ff;
     }
   }
 }

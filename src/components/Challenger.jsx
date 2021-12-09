@@ -52,6 +52,7 @@ const Challenger = function(props) {
   }
 
   const startGame = () => {
+    setSequence([]);
     clearTimeout();
     setCounter(0);
     setPoints(0);

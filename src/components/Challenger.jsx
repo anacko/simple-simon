@@ -5,14 +5,19 @@ import './Challenger.scss'
 const Challenger = function(props) {
 
   const [stage, setStage] = useState(0);
-  const [sequence, setSequence] = useState(makeSequence(stage));
+  // const [sequence, setSequence] = useState(makeSequence(stage));
+  const [sequence, setSequence] = useState([]);
   const [active, setActive] = useState(['', '', '', ''])
   const [counter, setCounter] = useState(0);
   const [points, setPoints] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [timesPlayed, setTimesPlayed] = useState(0);
+
+  //useEffect(() => { setSequence(makeSequence(stage)) }, [stage])
+  useEffect(() => { 
+    setSequence(prev => stage === 0 ? [] : [...prev, Math.floor(Math.random()*4)]) 
+  }, [stage])
   
-  useEffect(() => { setSequence(makeSequence(stage)) }, [stage])
   useEffect(() => {
     setTimeout(() => {
       for(let i = 0; i < sequence.length; i++) {
@@ -46,8 +51,15 @@ const Challenger = function(props) {
     }
   }
 
+  const startGame = () => {
+    clearTimeout();
+    setCounter(0);
+    setPoints(0);
+    setStage(1)
+  }
+
   return (<div className="challenger-container">
-    <button onClick={() => setStage(1)}><h3>Start Game</h3></button>
+    <button onClick={startGame}><h3>Start Game</h3></button>
     <h3>Stage: {stage}</h3>
     <table className="container">
       <tbody>

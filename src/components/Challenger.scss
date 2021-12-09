@@ -2,13 +2,22 @@ $border-stack: 5px solid black;
 $border-size: 5px;
 $challenger-size: 300px;
 
+.challenger-container {
+  background-color: #cccccc;
+  width: 1.2*$challenger-size;
+  padding: $border-size;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .container {
   width: $challenger-size;
   height: $challenger-size;
+  padding: $border-size;
   vertical-align: middle;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
-  position: relative;
 }
 
 .button {
@@ -16,54 +25,67 @@ $challenger-size: 300px;
   
   &-b0 {
     @extend .button;
-    background-color: green;
+    background-color: #008000;
     border-top-left-radius: 100%;
     
-    &:hover, &.active {
-      background-color: lightgreen;
+    &:hover {
+      background-color: #00cc00;
+    }
+
+    &.active {
+      background-color: #00ff00;
     }
   }
   
   &-b1 {
     @extend .button;
-    background-color: red;
+    background-color: #800000;
     border-top-right-radius: 100%;
     
-    &:hover, &.active {
-      background-color: pink;
+    &:hover {
+      background-color: #cc0000;
+    }
+    &.active {
+      background-color: #ff0000;
     }
   }
   
   &-b2 {
     @extend .button;
-    background-color: yellow;
+    background-color: #808000;
     border-bottom-left-radius: 100%;
     
-    &:hover, &.active {
-      background-color: lightyellow;
+    &:hover {
+      background-color: #cccc00;
+    }
+    &.active {
+      background-color: #ffff00;
     }
   }
   
   &-b3 {
     @extend .button;
-    background-color: blue;
+    background-color: #000080;
     border-bottom-right-radius: 100%;
     
-    &:hover, &.active {
-      background-color: lightblue;
+    &:hover {
+      background-color: #0000cc;
+    }
+    &.active {
+      background-color: #0000ff;
     }
   }
 }
 
 .theMiddle {
   font-size: 2em;
-  background-color: white;
+  background-color: #cccccc;
   border: $border-stack;
   width: $challenger-size/3;
   height: $challenger-size/3;
   position: absolute;
-  margin-top: $challenger-size/2 - $challenger-size/6 - 1.5*$border-size;
-  margin-left: $challenger-size/2 - $challenger-size/6 - 1.5*$border-size;
+  margin-top: $challenger-size/2 - $challenger-size/6 - 2.5*$border-size;
+  margin-left: $challenger-size/2 - $challenger-size/6 - 2.5*$border-size;
   border-radius: 100%;
   display: flex;
   align-items: center;

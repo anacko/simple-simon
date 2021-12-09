@@ -5,7 +5,7 @@ import { makeSequence } from './helpers/makeSequence';
 
 test('renders learn react link', () => {
   render(<App />);
-  const element = screen.getByText('Hello World!');
+  const element = screen.getByText('Simple Simon Game');
   expect(element).toBeInTheDocument();
 });
 

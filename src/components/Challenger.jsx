@@ -10,11 +10,20 @@ const Challenger = function(props) {
   const [active, setActive] = useState(['', '', '', ''])
   const [counter, setCounter] = useState(0);
   const [points, setPoints] = useState(0);
-  const [bestScore, setBestScore] = useState(0);
-  const [timesPlayed, setTimesPlayed] = useState(0);
 
-  //useEffect(() => { setSequence(makeSequence(stage)) }, [stage])
-  useEffect(() => { 
+  const storedBestScore = Number(localStorage.getItem('bestScore'))
+  const [bestScore, setBestScore] = useState(
+    Number.isInteger(storedBestScore) ? storedBestScore : 0
+  )
+  const storedTimesPlayed = Number(localStorage.getItem('timesPlayed'))
+  const [timesPlayed, setTimesPlayed] = useState(
+    Number.isInteger(storedTimesPlayed) ? storedTimesPlayed : 0
+  )
+
+  useEffect(() => { localStorage.setItem('bestScore', String(bestScore)) }, [bestScore])
+  useEffect(() => { localStorage.setItem('timesPlayed', String(timesPlayed)) }, [timesPlayed])
+
+  useEffect(() => {
     setSequence(prev => stage === 0 ? [] : [...prev, Math.floor(Math.random()*4)]) 
   }, [stage])
   
@@ -42,12 +51,12 @@ const Challenger = function(props) {
       }
     } else {
     // Wrong option
+      if (stage) { localStorage.setItem('timesPlayed', Number(localStorage.getItem('timesPlayed')) + 1) };
+      if (points > localStorage.getItem('bestScore')) { localStorage.setItem('bestScore', points); }
       clearTimeout();
       setCounter(0);
       setStage(0);
       setPoints(0);
-      if (stage) setTimesPlayed(timesPlayed + 1);
-      if (points > bestScore) setBestScore(points);
     }
   }
 
@@ -59,8 +68,15 @@ const Challenger = function(props) {
     setStage(1)
   }
 
+  const resetInfo = () => {
+    startGame();
+    localStorage.setItem('bestScore', 0)
+    localStorage.setItem('timesPlayed', 0)
+    setStage(0);
+  }
+
   return (<div className="challenger-container">
-    <button onClick={startGame}><h3>Start Game</h3></button>
+    <button onClick={startGame}>Start Game</button>
     <h3>Stage: {stage}</h3>
     <table className="container">
       <tbody>
@@ -75,8 +91,9 @@ const Challenger = function(props) {
       </tr>
       </tbody>
     </table>
-    <h3>Best Score: {bestScore}</h3>
-    <p>{timesPlayed} {timesPlayed === 1 ? 'time' : 'times'} played</p>
+    <h3>Best Score: {localStorage.getItem('bestScore') || 0}</h3>
+    <p>{localStorage.getItem('timesPlayed') || 0} {localStorage.getItem('timesPlayed') === '1' ? 'time' : 'times'} played</p>
+    <button onClick={resetInfo}>Reset Info</button>
   </div>)
 };
 

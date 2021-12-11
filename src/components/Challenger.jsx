@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { makeSequence, makeActive } from '../helpers/Challenger';
+import { makeActive } from '../helpers/Challenger';
 import './Challenger.scss'
 
 const Challenger = function(props) {
 
   const [stage, setStage] = useState(0);
-  // const [sequence, setSequence] = useState(makeSequence(stage));
   const [sequence, setSequence] = useState([]);
   const [active, setActive] = useState(['', '', '', ''])
+  const [unclickable, setUnclickable] = useState('')
   const [counter, setCounter] = useState(0);
   const [points, setPoints] = useState(0);
 
@@ -29,6 +29,12 @@ const Challenger = function(props) {
   
   useEffect(() => {
     setTimeout(() => {
+
+      setTimeout(() => {
+        setUnclickable('unclickable')
+        setTimeout(() => setUnclickable(''), (sequence.length) * 1200)
+      }, 0)
+      
       for(let i = 0; i < sequence.length; i++) {
         setTimeout(() => {
           makeActive(sequence[i], setActive)
@@ -82,12 +88,12 @@ const Challenger = function(props) {
       <tbody>
       <tr><td className="theMiddle" onClick={() => setCounter(0)}>{points}</td></tr>
       <tr>
-        <td className={`button-b0 ${active[0]}`} id="0" onClick={handleClick}/>
-        <td className={`button-b1 ${active[1]}`} id="1" onClick={handleClick}/>
+        <td className={`button-b0 ${active[0]} ${unclickable}`} id="0" onClick={handleClick}/>
+        <td className={`button-b1 ${active[1]} ${unclickable}`} id="1" onClick={handleClick}/>
       </tr>
       <tr>
-        <td className={`button-b2 ${active[2]}`} id="2" onClick={handleClick}/>
-        <td className={`button-b3 ${active[3]}`} id="3" onClick={handleClick}/>
+        <td className={`button-b2 ${active[2]} ${unclickable}`} id="2" onClick={handleClick}/>
+        <td className={`button-b3 ${active[3]} ${unclickable}`} id="3" onClick={handleClick}/>
       </tr>
       </tbody>
     </table>

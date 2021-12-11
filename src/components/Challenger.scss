@@ -23,6 +23,10 @@ $challenger-size: 300px;
 .button {
   border: $border-stack;
   
+  &.unclickable {
+    pointer-events: none;
+  }
+  
   &-b0 {
     @extend .button;
     background-color: #008000;

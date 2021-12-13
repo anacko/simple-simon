@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { makeActive } from '../helpers/Challenger';
+import { showSequence } from '../helpers/Challenger';
 import './Challenger.scss'
 
 const Challenger = function(props) {
@@ -28,20 +28,7 @@ const Challenger = function(props) {
   }, [stage])
   
   useEffect(() => {
-    setTimeout(() => {
-
-      setTimeout(() => {
-        setUnclickable('unclickable')
-        setTimeout(() => setUnclickable(''), (sequence.length) * 1200)
-      }, 0)
-      
-      for(let i = 0; i < sequence.length; i++) {
-        setTimeout(() => {
-          makeActive(sequence[i], setActive)
-          setTimeout(() => setActive(['', '', '', '']), 600)
-        }, 1200*i)
-      }
-    }, 500)
+    showSequence(sequence, setUnclickable, setActive)
   }, [sequence])
 
   const handleClick = function(event) {

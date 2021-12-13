@@ -1,78 +1,44 @@
-# Getting Started with Create React App
+# A Simple Simon Game
+
+This project is a simple version of [Simon](https://en.wikipedia.org/wiki/Simon_(game)). 
+
+By starting the game with Start Game, the player is presented with a sequence of colors and have to input the same sequence in order to advance. Sequences increase randomly. Score for the match is displayed on the middle and increases each time the player chooses a correct option. When the player chooses a wrong option, the match ends. The number of times played increases and a new best score is registered, if the score is higher. That could be reset to zero with "reset info".
+
+## A simple screenshot
+
+![game_screenshot]()
+
+## Development
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
 In the project directory, you can run:
 
-### `npm install`
-To install dependencies.
+* `npm install`   To install dependencies.
+* `npm start`   To run the app in development mode (port 3000).
 
-### `npm start`
+[React documentation](https://reactjs.org/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Current features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Increasing sequence by one at each time the user completes the current sequence
+* Different light intensity for sequence presentation and option selection on mouse over
+* Anti-cheat mode: the player must wait for the whole sequence presentation before starting to select colors
+* Score and number of levels played persistent and stored locally
 
-### `npm test`
+## Potential future additions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Sound effects to match.
+* More visual communication, such as "begin", "you have a high score" and "good game!".
+* About button, to explain the rules.
+* Starting routine for the match. Ex. one color at a time, then all colors at the same time, then a beep, than the match begints.
+* Ending routing for when the player loses. Ex. random fast blinking, as if the board is confused.
+* Difficulty levels - easy (faster presentation at the beginning of a long sequence), medium (current implementation), hard (random sequence at each stage).
+* Cheat mode, by allowing the player to start clicking before the sequence is totally presented.
+* Penalization / not registering score when the player cheats.
+* Zen more with one blink, one click.
+* Personalization with player name / option to register (database storage with more information).
+* Rotation between players.
+* Sessions where players could share a match.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-
-### TechStack
-
-React, Sass
+* Suggestions? Let me know!

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { showSequence } from '../helpers/Challenger';
 import About from "./About";
+import play from '../imgs/_128-play-button.png'
 import './Challenger.scss'
 
 const Challenger = function(props) {
@@ -69,13 +70,12 @@ const Challenger = function(props) {
     setStage(0);
   }
 
+  const showPlay = <img type="button" src={play} width="40" height="40" alt="Play" onClick={startGame}/>
+
   return (<div className="challenger-container">
-    <About />
-    <button onClick={startGame}>Start Game</button>
-    <h3>Stage: {stage}</h3>
     <table className="container">
       <tbody>
-      <tr><td className="theMiddle" onClick={() => setCounter(0)}>{points}</td></tr>
+      <tr><td className="theMiddle" onClick={() => setCounter(0)}>{stage ? points : showPlay}</td></tr>
       <tr>
         <td type="button" className={`button-b0 ${active[0]} ${unclickable}`} id="0" onClick={handleClick}/>
         <td type="button" className={`button-b1 ${active[1]} ${unclickable}`} id="1" onClick={handleClick}/>
@@ -86,9 +86,12 @@ const Challenger = function(props) {
       </tr>
       </tbody>
     </table>
+    <div className="buttons-container">
+      <About />
     <h3>Best Score: {localStorage.getItem('bestScore') || 0}</h3>
     <p>{localStorage.getItem('timesPlayed') || 0} {localStorage.getItem('timesPlayed') === '1' ? 'time' : 'times'} played</p>
     <button onClick={resetInfo}>Reset Info</button>
+    </div>
   </div>)
 };
 

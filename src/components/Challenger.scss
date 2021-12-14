@@ -30,20 +30,23 @@ $challenger-size: 300px;
   &-b0 {
     @extend .button;
     background-color: #008000;
+    border-color: #003300;
     border-top-left-radius: 100%;
     
     &:hover {
       background-color: #00cc00;
     }
-
+    
     &.active {
       background-color: #00ff00;
+      border-color: #006600;
     }
   }
   
   &-b1 {
     @extend .button;
     background-color: #800000;
+    border-color: #330000;
     border-top-right-radius: 100%;
     
     &:hover {
@@ -51,12 +54,14 @@ $challenger-size: 300px;
     }
     &.active {
       background-color: #ff0000;
+      border-color: #660000;
     }
   }
   
   &-b2 {
     @extend .button;
     background-color: #808000;
+    border-color: #333300;
     border-bottom-left-radius: 100%;
     
     &:hover {
@@ -64,12 +69,14 @@ $challenger-size: 300px;
     }
     &.active {
       background-color: #ffff00;
+      border-color: #666600;
     }
   }
   
   &-b3 {
     @extend .button;
     background-color: #000080;
+    border-color: #000033;
     border-bottom-right-radius: 100%;
     
     &:hover {
@@ -77,6 +84,7 @@ $challenger-size: 300px;
     }
     &.active {
       background-color: #0000ff;
+      border-color: #000066;
     }
   }
 }
@@ -85,6 +93,7 @@ $challenger-size: 300px;
   font-size: 2em;
   background-color: #cccccc;
   border: $border-stack;
+  border-color: #333333;
   width: $challenger-size/3;
   height: $challenger-size/3;
   position: absolute;

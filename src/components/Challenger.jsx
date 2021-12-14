@@ -75,12 +75,12 @@ const Challenger = function(props) {
       <tbody>
       <tr><td className="theMiddle" onClick={() => setCounter(0)}>{points}</td></tr>
       <tr>
-        <td className={`button-b0 ${active[0]} ${unclickable}`} id="0" onClick={handleClick}/>
-        <td className={`button-b1 ${active[1]} ${unclickable}`} id="1" onClick={handleClick}/>
+        <td type="button" className={`button-b0 ${active[0]} ${unclickable}`} id="0" onClick={handleClick}/>
+        <td type="button" className={`button-b1 ${active[1]} ${unclickable}`} id="1" onClick={handleClick}/>
       </tr>
       <tr>
-        <td className={`button-b2 ${active[2]} ${unclickable}`} id="2" onClick={handleClick}/>
-        <td className={`button-b3 ${active[3]} ${unclickable}`} id="3" onClick={handleClick}/>
+        <td type="button" className={`button-b2 ${active[2]} ${unclickable}`} id="2" onClick={handleClick}/>
+        <td type="button" className={`button-b3 ${active[3]} ${unclickable}`} id="3" onClick={handleClick}/>
       </tr>
       </tbody>
     </table>

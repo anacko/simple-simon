@@ -37,7 +37,7 @@ $challenger-size: 300px;
       background-color: #00cc00;
     }
     
-    &.active {
+    &.active, &:active {
       background-color: #00ff00;
       border-color: #006600;
     }
@@ -52,7 +52,7 @@ $challenger-size: 300px;
     &:hover {
       background-color: #cc0000;
     }
-    &.active {
+    &.active, &:active {
       background-color: #ff0000;
       border-color: #660000;
     }
@@ -67,7 +67,7 @@ $challenger-size: 300px;
     &:hover {
       background-color: #cccc00;
     }
-    &.active {
+    &.active, &:active {
       background-color: #ffff00;
       border-color: #666600;
     }
@@ -82,7 +82,7 @@ $challenger-size: 300px;
     &:hover {
       background-color: #0000cc;
     }
-    &.active {
+    &.active, &:active {
       background-color: #0000ff;
       border-color: #000066;
     }

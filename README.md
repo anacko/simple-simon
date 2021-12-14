@@ -19,6 +19,8 @@ In the project directory, you can run:
 
 [React documentation](https://reactjs.org/).
 
+Icons made by [Roundicons](https://www.flaticon.com/authors/roundicons)
+
 ## Current features
 
 * Increasing sequence by one at each time the user completes the current sequence

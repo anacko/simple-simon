@@ -31,7 +31,7 @@ In the project directory, you can run:
 * Sound effects to match.
 * More visual communication, such as "begin", "you have a high score" and "good game!".
 * About button, to explain the rules.
-* Starting routine for the match. Ex. one color at a time, then all colors at the same time, then a beep, than the match begints.
+* Starting routine for the match. Ex. one color at a time, then all colors at the same time, then a beep, than the match begins.
 * Ending routing for when the player loses. Ex. random fast blinking, as if the board is confused.
 * Difficulty levels - easy (faster presentation at the beginning of a long sequence), medium (current implementation), hard (random sequence at each stage).
 * Cheat mode, by allowing the player to start clicking before the sequence is totally presented.

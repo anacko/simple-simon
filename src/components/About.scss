@@ -1,0 +1,8 @@
+.about-section {
+  position: absolute;
+  z-index: 100;
+
+  &.invisible {
+    display: none;
+    }
+}

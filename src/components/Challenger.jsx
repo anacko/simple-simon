@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { showSequence } from '../helpers/Challenger';
+import About from "./About";
 import './Challenger.scss'
 
 const Challenger = function(props) {
@@ -69,6 +70,7 @@ const Challenger = function(props) {
   }
 
   return (<div className="challenger-container">
+    <About />
     <button onClick={startGame}>Start Game</button>
     <h3>Stage: {stage}</h3>
     <table className="container">

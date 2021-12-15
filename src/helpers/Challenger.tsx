@@ -18,6 +18,7 @@ const makeActive = (n: number,
   });
 };
 
+const timeouts: Array<any> = [];
 const showSequence = (sequence: Array<number>, 
   setUnclickable: React.Dispatch<React.SetStateAction<string>>, 
   setActive: React.Dispatch<React.SetStateAction<Array<string>>>) => {
@@ -26,16 +27,20 @@ const showSequence = (sequence: Array<number>,
   setTimeout(() => {
     setTimeout(() => {
       setUnclickable('unclickable')
-      setTimeout(() => setUnclickable(''), sequence.length * 1200)
+      timeouts.push(setTimeout(() => setUnclickable(''), sequence.length * 1200))
     }, 0)
     
     for(let i = 0; i < sequence.length; i++) {
-      setTimeout(() => {
+      timeouts.push(setTimeout(() => {
         makeActive(sequence[i], setActive)
         setTimeout(() => setActive(['', '', '', '']), 600)
-      }, 1200*i)
+      }, 1200*i))
     }
   }, 600)
 }
 
-export { makeSequence, showSequence }
+const stopSequence = () => {
+  timeouts.forEach(timer => clearTimeout(timer))
+}
+
+export { makeSequence, showSequence, stopSequence }

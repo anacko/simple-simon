@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { showSequence } from '../helpers/Challenger';
+import { showSequence, stopSequence } from '../helpers/Challenger';
 import About from "./About";
 import play from '../imgs/_128-play-button.png'
+import stop from '../imgs/_128-stop.png'
 import './Challenger.scss'
 
 const Challenger = function(props) {
@@ -57,10 +58,17 @@ const Challenger = function(props) {
 
   const startGame = () => {
     setSequence([]);
-    clearTimeout();
+    clearTimeout(showSequence);
     setCounter(0);
     setPoints(0);
     setStage(1)
+  }
+
+  const stopGame = () => {
+    stopSequence();
+    setStage(0);
+    if (stage) { localStorage.setItem('timesPlayed', Number(localStorage.getItem('timesPlayed')) + 1) };
+    if (points > localStorage.getItem('bestScore')) { localStorage.setItem('bestScore', points); }
   }
 
   const resetInfo = () => {
@@ -70,12 +78,17 @@ const Challenger = function(props) {
     setStage(0);
   }
 
-  const showPlay = <img type="button" src={play} width="40" height="40" alt="Play" onClick={startGame}/>
+  const startRound = <img type="button" src={play} width="64" height="64" alt="Play" onClick={startGame}/>
+  const stopRound = <img type="button" src={stop} width="64" height="64" alt="Play" onClick={stopGame}/>
 
   return (<div className="challenger-container">
+    <div className="buttons-container">
+      <About />
+      {stage ? stopRound : startRound}
+    </div>
     <table className="container">
       <tbody>
-      <tr><td className="theMiddle" onClick={() => setCounter(0)}>{stage ? points : showPlay}</td></tr>
+      <tr><td className="theMiddle" onClick={() => setCounter(0)}>{stage ? points : startRound}</td></tr>
       <tr>
         <td type="button" className={`button-b0 ${active[0]} ${unclickable}`} id="0" onClick={handleClick}/>
         <td type="button" className={`button-b1 ${active[1]} ${unclickable}`} id="1" onClick={handleClick}/>
@@ -86,12 +99,9 @@ const Challenger = function(props) {
       </tr>
       </tbody>
     </table>
-    <div className="buttons-container">
-      <About />
     <h3>Best Score: {localStorage.getItem('bestScore') || 0}</h3>
     <p>{localStorage.getItem('timesPlayed') || 0} {localStorage.getItem('timesPlayed') === '1' ? 'time' : 'times'} played</p>
     <button onClick={resetInfo}>Reset Info</button>
-    </div>
   </div>)
 };
 

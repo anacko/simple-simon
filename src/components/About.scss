@@ -1,0 +1,25 @@
+@import '../style-variables.scss';
+
+.about-section {
+  width: 0.9*$challenger-size;
+  padding: 10px;
+  position: absolute;
+  z-index: 100;
+  
+  background-color: #808080;
+  border-width: 5px;
+  border-style: outset;
+  border-color: #606060;
+  border-radius: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  &.invisible {
+    display: none;
+    }
+}
+
+p {
+  margin: 0.5em;
+}

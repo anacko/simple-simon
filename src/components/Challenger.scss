@@ -1,6 +1,4 @@
-$border-stack: 5px solid black;
-$border-size: 5px;
-$challenger-size: 300px;
+@import '../style-variables.scss';
 
 .challenger-container {
   background-color: #cccccc;
@@ -21,7 +19,7 @@ $challenger-size: 300px;
 }
 
 .button {
-  border: $border-stack;
+  border: $border-size outset;
   
   &.unclickable {
     pointer-events: none;
@@ -92,15 +90,20 @@ $challenger-size: 300px;
 .theMiddle {
   font-size: 2em;
   background-color: #cccccc;
-  border: $border-stack;
-  border-color: #333333;
+  border: $border-size ridge #333333;
+  border-radius: 50%;
   width: $challenger-size/3;
   height: $challenger-size/3;
   position: absolute;
   margin-top: $challenger-size/2 - $challenger-size/6 - 2.5*$border-size;
   margin-left: $challenger-size/2 - $challenger-size/6 - 2.5*$border-size;
-  border-radius: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

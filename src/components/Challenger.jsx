@@ -78,13 +78,13 @@ const Challenger = function(props) {
     setStage(0);
   }
 
-  const startRound = <img type="button" src={play} width="64" height="64" alt="Play" onClick={startGame}/>
-  const stopRound = <img type="button" src={stop} width="64" height="64" alt="Play" onClick={stopGame}/>
+  const startRound = <img type="button" src={play} width="40" height="40" alt="Play" onClick={startGame}/>
+  const stopRound = <img type="button" src={stop} width="40" height="40" alt="Play" onClick={stopGame}/>
 
   return (<div className="challenger-container">
     <div className="buttons-container">
-      <About />
       {stage ? stopRound : startRound}
+      <About />
     </div>
     <table className="container">
       <tbody>

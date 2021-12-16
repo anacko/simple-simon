@@ -18,6 +18,8 @@ const makeActive = (n: number,
   });
 };
 
+// timeouts - startSequence() - stopSequence():
+// https://stackoverflow.com/a/25311947/6364828
 const timeouts: Array<any> = [];
 const showSequence = (sequence: Array<number>, 
   setUnclickable: React.Dispatch<React.SetStateAction<string>>, 

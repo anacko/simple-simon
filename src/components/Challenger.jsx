@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { showSequence, stopSequence } from '../helpers/Challenger';
+import { showSequence, stopSequence, playSound } from '../helpers/Challenger';
 import About from "./About";
 import play from '../imgs/_128-play-button.png'
 import stop from '../imgs/_128-stop.png'
@@ -37,13 +37,16 @@ const Challenger = function(props) {
   const handleClick = function(event) {
 
     if (Number(event.target.id) === sequence[counter]) {
-    //Correct option
-      setCounter(counter + 1)
+    //Correct option    
+      playSound(Number(event.target.id))
       setPoints(points + 1)
+      setCounter(counter + 1)
 
       if (counter === stage - 1) {
-        setCounter(0)
-        setStage(stage+1)
+        setTimeout(() => {  
+          setCounter(0)
+          setStage(stage+1)
+        }, 1200)
       }
     } else {
     // Wrong option
@@ -77,6 +80,8 @@ const Challenger = function(props) {
     localStorage.setItem('timesPlayed', 0)
     setStage(0);
   }
+
+  const soundCodes = [4+12*3, 9+12*3, 1+12*4, 4+12*4]; // green, red, yellow, blue
 
   const startRound = <img type="button" src={play} width="40" height="40" alt="Play" onClick={startGame}/>
   const stopRound = <img type="button" src={stop} width="40" height="40" alt="Play" onClick={stopGame}/>

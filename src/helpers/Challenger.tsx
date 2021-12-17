@@ -6,6 +6,12 @@ const makeSequence = function(size: number, n: number = 4) {
   return sequence;
 }
 
+const playSound = (n: number) => {
+  const tones = ['E-4', 'A-4', 'Csharp-4', 'E-3']
+  const audio = new Audio(`sound/${tones[n]}.wav`)
+  return audio.play()
+}
+
 const makeActive = (n: number, 
   setState: React.Dispatch<React.SetStateAction<any>>) => {
   
@@ -35,6 +41,7 @@ const showSequence = (sequence: Array<number>,
     for(let i = 0; i < sequence.length; i++) {
       timeouts.push(setTimeout(() => {
         makeActive(sequence[i], setActive)
+        playSound(sequence[i])
         setTimeout(() => setActive(['', '', '', '']), 600)
       }, 1200*i))
     }
@@ -45,4 +52,4 @@ const stopSequence = () => {
   timeouts.forEach(timer => clearTimeout(timer))
 }
 
-export { makeSequence, showSequence, stopSequence }
+export { makeSequence, showSequence, stopSequence, playSound }

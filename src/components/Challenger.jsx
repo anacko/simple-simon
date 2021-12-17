@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { showSequence, stopSequence, playSound } from '../helpers/Challenger';
+import { showSequence, stopSequence, playSound, startGame, stopGame, resetInfo } from '../helpers/Challenger';
 import About from "./About";
 import play from '../imgs/_128-play-button.png'
 import stop from '../imgs/_128-stop.png'
@@ -59,32 +59,11 @@ const Challenger = function(props) {
     }
   }
 
-  const startGame = () => {
-    setSequence([]);
-    clearTimeout(showSequence);
-    setCounter(0);
-    setPoints(0);
-    setStage(1)
-  }
+  const startRound = <img type="button" src={play} width="40" height="40" alt="Play" 
+    onClick={() => startGame(setSequence, setCounter, setPoints, setStage)}/>
 
-  const stopGame = () => {
-    stopSequence();
-    setStage(0);
-    if (stage) { localStorage.setItem('timesPlayed', Number(localStorage.getItem('timesPlayed')) + 1) };
-    if (points > localStorage.getItem('bestScore')) { localStorage.setItem('bestScore', points); }
-  }
-
-  const resetInfo = () => {
-    startGame();
-    localStorage.setItem('bestScore', 0)
-    localStorage.setItem('timesPlayed', 0)
-    setStage(0);
-  }
-
-  const soundCodes = [4+12*3, 9+12*3, 1+12*4, 4+12*4]; // green, red, yellow, blue
-
-  const startRound = <img type="button" src={play} width="40" height="40" alt="Play" onClick={startGame}/>
-  const stopRound = <img type="button" src={stop} width="40" height="40" alt="Play" onClick={stopGame}/>
+  const stopRound = <img type="button" src={stop} width="40" height="40" alt="Play" 
+    onClick={() => stopGame(setStage, stage, points)}/>
 
   return (<div className="challenger-container">
     <div className="buttons-container">
@@ -106,7 +85,7 @@ const Challenger = function(props) {
     </table>
     <h3>Best Score: {localStorage.getItem('bestScore') || 0}</h3>
     <p>{localStorage.getItem('timesPlayed') || 0} {localStorage.getItem('timesPlayed') === '1' ? 'time' : 'times'} played</p>
-    <button onClick={resetInfo}>Reset Info</button>
+    <button onClick={() => resetInfo(setStage, setSequence, setCounter, setPoints)}>Reset Info</button>
   </div>)
 };
 

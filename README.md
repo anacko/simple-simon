@@ -44,3 +44,20 @@ Icons made by [Roundicons](https://www.flaticon.com/authors/roundicons)
 * Sessions where players could share a match.
 
 * Suggestions? Let me know!
+
+# Musical Notes Sources
+
+According to [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game)#Gameplay), "Simon's tones, on the other hand, were designed to always be harmonic,[2] no matter the sequence, and consisted of an A major triad in second inversion, resembling a trumpet fanfare". 
+
+I used the following tones in this project.
+
+Color|Tone|Fequency(Hz)
+---|---|---
+Green|E4|329.628
+Red|A4|440
+Yellow|C♯4|277.183
+Blue|E3|164.814
+
+Sources:
+* [Online Tone Generator](https://www.szynalski.com/tone-generator/) for getting the frequencies for each note.
+* [Sine Tone Generator](https://www.audiocheck.net/audiofrequencysignalgenerator_sinetone.php) for generating the sound files. Configurations: Hz according to each tone frequency, 0 dBFS, 0.6s, 32hHz.

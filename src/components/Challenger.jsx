@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { showSequence, resetInfo, userClick } from '../helpers/Challenger';
 import './Challenger.scss'
 
-const Challenger = function({counter, setCounter, score, setScore, sequence, setSequence, stage, setStage}) {
+const Challenger = function({counter, setCounter, score, setScore, sequence, setSequence, stage, setStage, sound}) {
 
   const [active, setActive] = useState(['', '', '', ''])
   const [unclickable, setUnclickable] = useState('')
@@ -24,10 +24,10 @@ const Challenger = function({counter, setCounter, score, setScore, sequence, set
   }, [stage])
   
   useEffect(() => {
-    showSequence(sequence, setUnclickable, setActive)
+    showSequence(sequence, sound, setUnclickable, setActive)
   }, [sequence])
 
-  const handleClick = (event) => userClick(event, sequence, counter, score, stage, setCounter, setScore,setStage)
+  const handleClick = (event) => userClick(event, sequence, sound, counter, score, stage, setCounter, setScore, setStage)
 
   return (<div className="challenger-container">
     <table className="container">

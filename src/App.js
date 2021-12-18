@@ -26,7 +26,8 @@ function App() {
       stage={stage} setStage={setStage}
       score={score} setScore={setScore} 
       counter={counter} setCounter={setCounter} 
-      sequence={sequence} setSequence={setSequence}/>
+      sequence={sequence} setSequence={setSequence}
+      sound={sound}/>
       
       <PlayerInfo />
     </div>

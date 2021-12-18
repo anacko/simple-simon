@@ -26,7 +26,7 @@ const makeActive = (n: number, setState: React.Dispatch<React.SetStateAction<any
 // https://stackoverflow.com/a/25311947/6364828
 const timeouts: Array<any> = [];
 const showSequence = (
-  sequence: Array<number>, 
+  sequence: Array<number>, sound: boolean,
   setUnclickable: React.Dispatch<React.SetStateAction<string>>, 
   setActive: React.Dispatch<React.SetStateAction<Array<string>>>
   ) => {
@@ -40,7 +40,7 @@ const showSequence = (
     for(let i = 0; i < sequence.length; i++) {
       timeouts.push(setTimeout(() => {
         makeActive(sequence[i], setActive)
-        playSound(sequence[i])
+        if (sound) { playSound(sequence[i]) }
         setTimeout(() => setActive(['', '', '', '']), 600)
       }, 1200*i))
     }
@@ -52,7 +52,7 @@ const stopSequence = () => {
 }
 
 
-const userClick = function(event: any, sequence: Array<number>,
+const userClick = function(event: any, sequence: Array<number>, sound: boolean,
   counter: number, score: number, stage: number, 
   setCounter: React.Dispatch<React.SetStateAction<number>>, 
   setScore: React.Dispatch<React.SetStateAction<number>>, 
@@ -60,7 +60,7 @@ const userClick = function(event: any, sequence: Array<number>,
 
   if (Number(event.target.id) === sequence[counter]) {
   //Correct option    
-    playSound(Number(event.target.id))
+    if (sound) { playSound(Number(event.target.id)) }
     setScore(score + 1)
     setCounter(counter + 1)
 

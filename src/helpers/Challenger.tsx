@@ -1,11 +1,6 @@
-const makeSequence = function(size: number, n: number = 4) {
-  const sequence = [];
-  for(let i = 0; i < size; i++) {
-    sequence.push(Math.floor(Math.random()*n))
-  }
-  return sequence;
-}
+import { startGame } from "./GameControls"
 
+// Buttons behavior
 const playSound = (n: number) => {
   const tones = ['E-4', 'A-4', 'Csharp-4', 'E-3']
   const audio = new Audio(`sound/${tones[n]}.wav`)
@@ -81,25 +76,7 @@ const userClick = function(event: any, sequence: Array<number>, sound: boolean,
   }
 }
 
-// Game Actions
-const startGame = (
-  setSequence: React.Dispatch<React.SetStateAction<Array<number>>>, 
-  setCounter: React.Dispatch<React.SetStateAction<number>>, 
-  setScore: React.Dispatch<React.SetStateAction<number>>, 
-  setStage: React.Dispatch<React.SetStateAction<number>>
-  ) => {
-  setSequence([]);
-  setCounter(0);
-  setScore(0);
-  setStage(1)
-}
-
-const stopGame = (setStage: React.Dispatch<React.SetStateAction<number>>, stage: number, score: number) => {
-  stopSequence();
-  setStage(0);
-  if (stage) { localStorage.setItem('timesPlayed', String(Number(localStorage.getItem('timesPlayed')) + 1)) };
-  if (score > Number(localStorage.getItem('bestScore'))) { localStorage.setItem('bestScore', String(score)); }
-}
+// Player actions
 
 const resetInfo = (setStage: React.Dispatch<React.SetStateAction<number>>,
   setSequence: React.Dispatch<React.SetStateAction<Array<number>>>, 
@@ -112,4 +89,4 @@ const resetInfo = (setStage: React.Dispatch<React.SetStateAction<number>>,
   setStage(0);
 }
 
-export { makeSequence, showSequence, stopSequence, playSound, startGame, stopGame, resetInfo, userClick }
+export { showSequence, stopSequence, resetInfo, userClick }

@@ -6,7 +6,7 @@ import mute from '../imgs/_128-mute.png'
 import unmute from '../imgs/_128-speaker.png'
 import './GameControls.scss'
 
-function GameControls({stage, setStage, score, setScore, setCounter, setSequence, sound, setSound}) {
+function GameControls({stage, setStage, score, setScore, setCounter, setSequence, sound, setSound, visible, setVisible}) {
 
   const startRound = <img type="button" src={play} width="40" height="40" alt="Play" title="Start Round"
     onClick={() => startGame(setSequence, setCounter, setScore, setStage)}/>
@@ -21,9 +21,9 @@ function GameControls({stage, setStage, score, setScore, setCounter, setSequence
     onClick={() => setSound(true)}/>
 
   return (<div className="buttons-container">
-      {stage ? stopRound : startRound}
       {sound ? muteSound : unmuteSound}
-      <About />
+      {stage ? stopRound : startRound}
+      <About visible={visible} setVisible={setVisible}/>
   </div>);
 }
 

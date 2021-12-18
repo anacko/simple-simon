@@ -11,6 +11,7 @@ function App() {
   const [sequence, setSequence] = useState([]);
   const [sound, setSound] = useState('true');
   const [stage, setStage] = useState(0);
+  const [visible, setVisible] = useState('invisible')
 
   return (
     <div className="App">
@@ -20,6 +21,7 @@ function App() {
         score={score} setScore={setScore} 
         sound={sound} setSound={setSound}
         setCounter={setCounter} setSequence={setSequence}
+        visible={visible} setVisible={setVisible}
       />
       
       <Challenger 

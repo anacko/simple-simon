@@ -32,7 +32,7 @@ const Challenger = function({counter, setCounter, score, setScore, sequence, set
   return (<div className="challenger-container">
     <table className="container">
       <tbody>
-      <tr><td className="theMiddle" onClick={() => setCounter(0)}>{stage ? score : ''}</td></tr>
+      <tr><td className="theMiddle">{stage ? score : ''}</td></tr>
       <tr>
         <td type="button" className={`button-b0 ${active[0]} ${unclickable}`} id="0" onClick={handleClick}/>
         <td type="button" className={`button-b1 ${active[1]} ${unclickable}`} id="1" onClick={handleClick}/>

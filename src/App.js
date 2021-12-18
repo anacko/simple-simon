@@ -9,6 +9,7 @@ function App() {
   const [counter, setCounter] = useState(0);
   const [score, setScore] = useState(0);
   const [sequence, setSequence] = useState([]);
+  const [sound, setSound] = useState('true');
   const [stage, setStage] = useState(0);
 
   return (
@@ -17,6 +18,7 @@ function App() {
       <GameControls 
         stage={stage} setStage={setStage}
         score={score} setScore={setScore} 
+        sound={sound} setSound={setSound}
         setCounter={setCounter} setSequence={setSequence}
       />
       

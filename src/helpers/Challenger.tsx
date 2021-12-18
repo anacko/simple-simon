@@ -51,35 +51,65 @@ const stopSequence = () => {
   timeouts.forEach(timer => clearTimeout(timer))
 }
 
+
+const userClick = function(event: any, sequence: Array<number>,
+  counter: number, score: number, stage: number, 
+  setCounter: React.Dispatch<React.SetStateAction<number>>, 
+  setScore: React.Dispatch<React.SetStateAction<number>>, 
+  setStage: React.Dispatch<React.SetStateAction<number>>) {
+
+  if (Number(event.target.id) === sequence[counter]) {
+  //Correct option    
+    playSound(Number(event.target.id))
+    setScore(score + 1)
+    setCounter(counter + 1)
+
+    if (counter === stage - 1) {
+      setTimeout(() => {  
+        setCounter(0)
+        setStage(stage+1)
+      }, 1200)
+    }
+  } else {
+  // Wrong option
+    if (stage) { localStorage.setItem('timesPlayed', String(Number(localStorage.getItem('timesPlayed'))) + 1) };
+    if (score > Number(localStorage.getItem('bestScore'))) { localStorage.setItem('bestScore', String(score)); }
+    clearTimeout();
+    setCounter(0);
+    setStage(0);
+    setScore(0);
+  }
+}
+
 // Game Actions
 const startGame = (
   setSequence: React.Dispatch<React.SetStateAction<Array<number>>>, 
   setCounter: React.Dispatch<React.SetStateAction<number>>, 
-  setPoints: React.Dispatch<React.SetStateAction<number>>, 
+  setScore: React.Dispatch<React.SetStateAction<number>>, 
   setStage: React.Dispatch<React.SetStateAction<number>>
   ) => {
   setSequence([]);
   setCounter(0);
-  setPoints(0);
+  setScore(0);
   setStage(1)
 }
 
-const stopGame = (setStage: React.Dispatch<React.SetStateAction<number>>, stage: number, points: number) => {
+const stopGame = (setStage: React.Dispatch<React.SetStateAction<number>>, stage: number, score: number) => {
   stopSequence();
   setStage(0);
   if (stage) { localStorage.setItem('timesPlayed', String(Number(localStorage.getItem('timesPlayed')) + 1)) };
-  if (points > Number(localStorage.getItem('bestScore'))) { localStorage.setItem('bestScore', String(points)); }
+  if (score > Number(localStorage.getItem('bestScore'))) { localStorage.setItem('bestScore', String(score)); }
 }
 
 const resetInfo = (setStage: React.Dispatch<React.SetStateAction<number>>,
   setSequence: React.Dispatch<React.SetStateAction<Array<number>>>, 
   setCounter: React.Dispatch<React.SetStateAction<number>>, 
-  setPoints: React.Dispatch<React.SetStateAction<number>>
+  setScore: React.Dispatch<React.SetStateAction<number>>
   ) => {
-  startGame(setSequence, setCounter, setPoints, setStage);
+  startGame(setSequence, setCounter, setScore, setStage);
   localStorage.setItem('bestScore', '0');
   localStorage.setItem('timesPlayed', '0');
   setStage(0);
 }
 
-export { makeSequence, showSequence, stopSequence, playSound, startGame, stopGame, resetInfo }
+export { makeSequence, showSequence, stopSequence, playSound, startGame, stopGame, resetInfo, userClick }

@@ -67,7 +67,7 @@ const userClick = function(event: any, sequence: Array<number>, sound: boolean,
     }
   } else {
   // Wrong option
-    if (stage) { localStorage.setItem('timesPlayed', String(Number(localStorage.getItem('timesPlayed'))) + 1) };
+    if (stage) { localStorage.setItem('timesPlayed', String(Number(localStorage.getItem('timesPlayed')) + 1)) };
     if (score > Number(localStorage.getItem('bestScore'))) { localStorage.setItem('bestScore', String(score)); }
     clearTimeout();
     setCounter(0);

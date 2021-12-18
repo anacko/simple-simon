@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import info from '../imgs/_128-info.png'
 import './About.scss'
 
-function About() {
+function About({visible, setVisible}) {
 
-  const [visible, setVisible] = useState('invisible')
   const toggleAbout = () => visible === 'visible' ? setVisible('invisible') : setVisible('visible')
 
   return (

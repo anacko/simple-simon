@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { showSequence, stopSequence, playSound, startGame, stopGame, resetInfo } from '../helpers/Challenger';
-import About from "./About";
-import play from '../imgs/_128-play-button.png'
-import stop from '../imgs/_128-stop.png'
+import { useEffect, useState } from "react";
+import { showSequence, resetInfo, userClick } from '../helpers/Challenger';
 import './Challenger.scss'
 
-const Challenger = function(props) {
+const Challenger = function({counter, setCounter, score, setScore, sequence, setSequence, stage, setStage, sound}) {
 
-  const [stage, setStage] = useState(0);
-  const [sequence, setSequence] = useState([]);
   const [active, setActive] = useState(['', '', '', ''])
   const [unclickable, setUnclickable] = useState('')
-  const [counter, setCounter] = useState(0);
-  const [points, setPoints] = useState(0);
 
   const storedBestScore = Number(localStorage.getItem('bestScore'))
   const [bestScore, setBestScore] = useState(
@@ -31,48 +24,15 @@ const Challenger = function(props) {
   }, [stage])
   
   useEffect(() => {
-    showSequence(sequence, setUnclickable, setActive)
+    showSequence(sequence, sound, setUnclickable, setActive)
   }, [sequence])
 
-  const handleClick = function(event) {
-
-    if (Number(event.target.id) === sequence[counter]) {
-    //Correct option    
-      playSound(Number(event.target.id))
-      setPoints(points + 1)
-      setCounter(counter + 1)
-
-      if (counter === stage - 1) {
-        setTimeout(() => {  
-          setCounter(0)
-          setStage(stage+1)
-        }, 1200)
-      }
-    } else {
-    // Wrong option
-      if (stage) { localStorage.setItem('timesPlayed', Number(localStorage.getItem('timesPlayed')) + 1) };
-      if (points > localStorage.getItem('bestScore')) { localStorage.setItem('bestScore', points); }
-      clearTimeout();
-      setCounter(0);
-      setStage(0);
-      setPoints(0);
-    }
-  }
-
-  const startRound = <img type="button" src={play} width="40" height="40" alt="Play" 
-    onClick={() => startGame(setSequence, setCounter, setPoints, setStage)}/>
-
-  const stopRound = <img type="button" src={stop} width="40" height="40" alt="Play" 
-    onClick={() => stopGame(setStage, stage, points)}/>
+  const handleClick = (event) => userClick(event, sequence, sound, counter, score, stage, setCounter, setScore, setStage)
 
   return (<div className="challenger-container">
-    <div className="buttons-container">
-      {stage ? stopRound : startRound}
-      <About />
-    </div>
     <table className="container">
       <tbody>
-      <tr><td className="theMiddle" onClick={() => setCounter(0)}>{stage ? points : startRound}</td></tr>
+      <tr><td className="theMiddle">{stage ? score : ''}</td></tr>
       <tr>
         <td type="button" className={`button-b0 ${active[0]} ${unclickable}`} id="0" onClick={handleClick}/>
         <td type="button" className={`button-b1 ${active[1]} ${unclickable}`} id="1" onClick={handleClick}/>
@@ -85,7 +45,7 @@ const Challenger = function(props) {
     </table>
     <h3>Best Score: {localStorage.getItem('bestScore') || 0}</h3>
     <p>{localStorage.getItem('timesPlayed') || 0} {localStorage.getItem('timesPlayed') === '1' ? 'time' : 'times'} played</p>
-    <button onClick={() => resetInfo(setStage, setSequence, setCounter, setPoints)}>Reset Info</button>
+    <button onClick={() => resetInfo(setStage, setSequence, setCounter, setScore)}>Reset Info</button>
   </div>)
 };
 

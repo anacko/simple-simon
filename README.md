@@ -6,7 +6,7 @@ By starting the game with Start Game, the player is presented with a sequence of
 
 ## A simple screenshot
 
-![game_screenshot](https://github.com/anacko/simple-simon/blob/master/docs/imgs/Example-211218.png)
+![game_screenshot](https://github.com/anacko/simple-simon/blob/master/docs/imgs/Example-211220.png)
 
 ## Development
 

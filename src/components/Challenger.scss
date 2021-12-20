@@ -1,7 +1,7 @@
 @import '../style-variables.scss';
 
 .challenger-container {
-  background-color: #cccccc;
+  background-color: $app-color;
   width: 1.2*$challenger-size;
   padding: $border-size;
   margin-left: auto;
@@ -89,7 +89,7 @@
 
 .theMiddle {
   font-size: 2em;
-  background-color: #cccccc;
+  background-color: $app-color;
   border: $border-size ridge #333333;
   border-radius: 50%;
   width: $challenger-size/3;
@@ -100,10 +100,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.buttons-container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 }

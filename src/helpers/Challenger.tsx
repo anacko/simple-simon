@@ -1,4 +1,5 @@
-import { startGame } from "./GameControls"
+import React from "react";
+import { setInfo, updateInfo } from "./PlayInfo";
 
 // Buttons behavior
 const playSound = (n: number) => {
@@ -47,11 +48,13 @@ const stopSequence = () => {
 }
 
 
-const userClick = function(event: any, sequence: Array<number>, sound: boolean,
+const userClick = (event: any, sequence: Array<number>, sound: boolean,
   counter: number, score: number, stage: number, 
   setCounter: React.Dispatch<React.SetStateAction<number>>, 
   setScore: React.Dispatch<React.SetStateAction<number>>, 
-  setStage: React.Dispatch<React.SetStateAction<number>>) {
+  setStage: React.Dispatch<React.SetStateAction<number>>,
+  setPlayInfo: React.Dispatch<React.SetStateAction<object>>
+  ) => {
 
   if (Number(event.target.id) === sequence[counter]) {
   //Correct option    
@@ -67,26 +70,11 @@ const userClick = function(event: any, sequence: Array<number>, sound: boolean,
     }
   } else {
   // Wrong option
-    if (stage) { localStorage.setItem('timesPlayed', String(Number(localStorage.getItem('timesPlayed')) + 1)) };
-    if (score > Number(localStorage.getItem('bestScore'))) { localStorage.setItem('bestScore', String(score)); }
-    clearTimeout();
+    setInfo(updateInfo(score), setPlayInfo);
     setCounter(0);
     setStage(0);
     setScore(0);
   }
 }
 
-// Player actions
-
-const resetInfo = (setStage: React.Dispatch<React.SetStateAction<number>>,
-  setSequence: React.Dispatch<React.SetStateAction<Array<number>>>, 
-  setCounter: React.Dispatch<React.SetStateAction<number>>, 
-  setScore: React.Dispatch<React.SetStateAction<number>>
-  ) => {
-  startGame(setSequence, setCounter, setScore, setStage);
-  localStorage.setItem('bestScore', '0');
-  localStorage.setItem('timesPlayed', '0');
-  setStage(0);
-}
-
-export { showSequence, stopSequence, resetInfo, userClick }
+export { showSequence, stopSequence, userClick }

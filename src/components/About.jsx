@@ -1,14 +1,22 @@
 import info from '../imgs/_128-info.png'
 import './About.scss'
 
-function About({viewAbout, setViewAbout}) {
+function About({viewComponents, setViewComponents}) {
 
-  const toggleAbout = () => viewAbout === 'visible' ? setViewAbout('invisible') : setViewAbout('visible')
+  const toggleAbout = () => {
+    if (viewComponents.includes('About')) {
+      const newComponents = [];
+      viewComponents.map(elem => elem !== 'About' ? newComponents.push(elem) : null);
+      setViewComponents([...newComponents]);
+    } else {
+      setViewComponents([...viewComponents, 'About']);
+    }
+  };
 
   return (
     <div className="About">
       <img src={info} width="40" height="40" alt="About" onClick={toggleAbout}/>
-      <div className={`about-section ${viewAbout}`}>
+      <div className={`about-section ${viewComponents.includes('About')?'visible':'invisible'}`}>
         <h3>Instructions</h3>
         <p>Press Start Game to begin. Once the sequence is presented, press the colors in the same order to go to next stage.</p>
         <p>Progress is stored locally. Press Reset Info to reset it.</p>

@@ -1,6 +1,7 @@
 @import '../style-variables.scss';
 
 .buttons-container {
+  background-color: $app-color;
   margin-left: auto;
   margin-right: auto;
   width: $challenger-size;

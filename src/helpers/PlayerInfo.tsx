@@ -9,12 +9,19 @@ const getInfo = (info: string = 'simonPlayInfo') => {
   }
 };
 
+const updateInfo = (score: number) => {
+  const newInfo = {...getInfo()};
+  newInfo.timesPlayed++;
+  if (score > newInfo.bestScore) { newInfo.bestScore = score };
+  return newInfo;
+}
+
 const setInfo = (info: object, 
   setPlayInfo: React.Dispatch<React.SetStateAction<Object>>, 
   localKey: string = 'simonPlayInfo'
   ) => {
   setPlayInfo(info);
-  return localStorage.setItem(localKey, JSON.stringify(info))
+  localStorage.setItem(localKey, JSON.stringify(info))
 };
 
 const resetInfo = (setStage: React.Dispatch<React.SetStateAction<number>>,
@@ -29,4 +36,4 @@ const resetInfo = (setStage: React.Dispatch<React.SetStateAction<number>>,
 };
 
 
-export { getInfo, setInfo, resetInfo }
+export { getInfo, setInfo, updateInfo, resetInfo }

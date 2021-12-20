@@ -24,6 +24,7 @@ function App() {
         sound={sound} setSound={setSound}
         setCounter={setCounter} setSequence={setSequence}
         visible={visible} setVisible={setVisible}
+        setPlayInfo={setPlayInfo}
       />
       
       <Challenger 

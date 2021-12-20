@@ -1,4 +1,6 @@
+import React from "react";
 import { stopSequence } from "./Challenger";
+import { setInfo, updateInfo } from "./PlayerInfo";
 
 const startGame = (
   setSequence: React.Dispatch<React.SetStateAction<Array<number>>>, 
@@ -12,11 +14,13 @@ const startGame = (
   setStage(1)
 }
 
-const stopGame = (setStage: React.Dispatch<React.SetStateAction<number>>, stage: number, score: number) => {
+const stopGame = (score: number,
+  setStage: React.Dispatch<React.SetStateAction<number>>, 
+  setPlayInfo: React.Dispatch<React.SetStateAction<object>>
+  ) => {
   stopSequence();
   setStage(0);
-  if (stage) { localStorage.setItem('timesPlayed', String(Number(localStorage.getItem('timesPlayed')) + 1)) };
-  if (score > Number(localStorage.getItem('bestScore'))) { localStorage.setItem('bestScore', String(score)); }
+  setInfo(updateInfo(score), setPlayInfo);
 }
 
 export { startGame, stopGame }

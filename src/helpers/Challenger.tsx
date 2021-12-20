@@ -1,5 +1,5 @@
 import React from "react";
-import { getInfo, setInfo } from "./PlayerInfo";
+import { setInfo, updateInfo } from "./PlayerInfo";
 
 // Buttons behavior
 const playSound = (n: number) => {
@@ -70,10 +70,7 @@ const userClick = (event: any, sequence: Array<number>, sound: boolean,
     }
   } else {
   // Wrong option
-    const newInfo = {...getInfo()};
-    newInfo.timesPlayed++;
-    if (score > newInfo.bestScore) { newInfo.bestScore = score };
-    setInfo(newInfo, setPlayInfo);
+    setInfo(updateInfo(score), setPlayInfo);
     setCounter(0);
     setStage(0);
     setScore(0);

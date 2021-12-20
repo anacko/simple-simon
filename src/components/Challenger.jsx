@@ -3,7 +3,7 @@ import { showSequence, userClick } from '../helpers/Challenger';
 import { resetInfo } from '../helpers/PlayerInfo';
 import './Challenger.scss'
 
-const Challenger = function({counter, setCounter, score, setScore, sequence, setSequence, stage, setStage, sound}) {
+const Challenger = function({counter, setCounter, score, setScore, sequence, setSequence, stage, setStage, sound, setPlayInfo}) {
 
   const [active, setActive] = useState(['', '', '', ''])
   const [unclickable, setUnclickable] = useState('')
@@ -16,7 +16,7 @@ const Challenger = function({counter, setCounter, score, setScore, sequence, set
     showSequence(sequence, sound, setUnclickable, setActive)
   }, [sequence])
 
-  const handleClick = (event) => userClick(event, sequence, sound, counter, score, stage, setCounter, setScore, setStage)
+  const handleClick = (event) => userClick(event, sequence, sound, counter, score, stage, setCounter, setScore, setStage, setPlayInfo)
 
   return (<div className="challenger-container">
     <table className="container">

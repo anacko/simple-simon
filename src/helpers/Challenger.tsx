@@ -1,3 +1,6 @@
+import React from "react";
+import { getInfo, setInfo } from "./PlayerInfo";
+
 // Buttons behavior
 const playSound = (n: number) => {
   const tones = ['E-4', 'A-4', 'Csharp-4', 'E-3']
@@ -45,11 +48,13 @@ const stopSequence = () => {
 }
 
 
-const userClick = function(event: any, sequence: Array<number>, sound: boolean,
+const userClick = (event: any, sequence: Array<number>, sound: boolean,
   counter: number, score: number, stage: number, 
   setCounter: React.Dispatch<React.SetStateAction<number>>, 
   setScore: React.Dispatch<React.SetStateAction<number>>, 
-  setStage: React.Dispatch<React.SetStateAction<number>>) {
+  setStage: React.Dispatch<React.SetStateAction<number>>,
+  setPlayInfo: React.Dispatch<React.SetStateAction<object>>
+  ) => {
 
   if (Number(event.target.id) === sequence[counter]) {
   //Correct option    
@@ -65,9 +70,10 @@ const userClick = function(event: any, sequence: Array<number>, sound: boolean,
     }
   } else {
   // Wrong option
-    if (stage) { localStorage.setItem('timesPlayed', String(Number(localStorage.getItem('timesPlayed')) + 1)) };
-    if (score > Number(localStorage.getItem('bestScore'))) { localStorage.setItem('bestScore', String(score)); }
-    clearTimeout();
+    const newInfo = {...getInfo()};
+    newInfo.timesPlayed++;
+    if (score > newInfo.bestScore) { newInfo.bestScore = score };
+    setInfo(newInfo, setPlayInfo);
     setCounter(0);
     setStage(0);
     setScore(0);

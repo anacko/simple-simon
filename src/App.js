@@ -3,10 +3,12 @@ import './App.scss';
 import GameControls from './components/GameControls';
 import Challenger from './components/Challenger';
 import PlayerInfo from './components/PlayerInfo';
+import { getInfo } from './helpers/PlayerInfo';
 
 function App() {
 
   const [counter, setCounter] = useState(0);
+  const [playInfo, setPlayInfo] = useState(getInfo())
   const [score, setScore] = useState(0);
   const [sequence, setSequence] = useState([]);
   const [sound, setSound] = useState('true');
@@ -29,9 +31,11 @@ function App() {
       score={score} setScore={setScore} 
       counter={counter} setCounter={setCounter} 
       sequence={sequence} setSequence={setSequence}
-      sound={sound}/>
+      sound={sound} setPlayInfo={setPlayInfo}/>
       
-      <PlayerInfo setStage={setStage} setSequence={setSequence} setCounter={setCounter} setScore={setScore}/>
+      <PlayerInfo 
+      playInfo={playInfo} setPlayInfo={setPlayInfo}
+      setStage={setStage} setSequence={setSequence} setCounter={setCounter} setScore={setScore}/>
     </div>
   );
 }

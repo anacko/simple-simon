@@ -1,5 +1,5 @@
 import React from "react";
-import { setInfo, updateInfo } from "./PlayerInfo";
+import { setInfo, updateInfo } from "./PlayInfo";
 
 // Buttons behavior
 const playSound = (n: number) => {

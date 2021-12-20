@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { showSequence, userClick } from '../helpers/Challenger';
-import { resetInfo } from '../helpers/PlayerInfo';
 import './Challenger.scss'
 
 const Challenger = function({counter, setCounter, score, setScore, sequence, setSequence, stage, setStage, sound, setPlayInfo}) {

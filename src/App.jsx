@@ -2,8 +2,8 @@ import { useState } from 'react';
 import './App.scss';
 import GameControls from './components/GameControls';
 import Challenger from './components/Challenger';
-import PlayerInfo from './components/PlayerInfo';
-import { getInfo } from './helpers/PlayerInfo';
+import PlayInfo from './components/PlayInfo';
+import { getInfo } from './helpers/PlayInfo';
 
 function App() {
 
@@ -34,7 +34,7 @@ function App() {
       sequence={sequence} setSequence={setSequence}
       sound={sound} setPlayInfo={setPlayInfo}/>
       
-      <PlayerInfo 
+      <PlayInfo 
       playInfo={playInfo} setPlayInfo={setPlayInfo}
       setStage={setStage} setSequence={setSequence} setCounter={setCounter} setScore={setScore}/>
     </div>

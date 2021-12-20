@@ -1,6 +1,6 @@
 import React from "react";
 import { stopSequence } from "./Challenger";
-import { setInfo, updateInfo } from "./PlayerInfo";
+import { setInfo, updateInfo } from "./PlayInfo";
 
 const startGame = (
   setSequence: React.Dispatch<React.SetStateAction<Array<number>>>, 

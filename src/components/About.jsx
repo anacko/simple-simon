@@ -6,7 +6,7 @@ function About({visible, setVisible}) {
   const toggleAbout = () => visible === 'visible' ? setVisible('invisible') : setVisible('visible')
 
   return (
-    <div className="App">
+    <div className="About">
       <img src={info} width="40" height="40" alt="About" onClick={toggleAbout}/>
       <div className={`about-section ${visible}`}>
         <h3>Instructions</h3>

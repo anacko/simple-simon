@@ -13,7 +13,8 @@ function App() {
   const [sequence, setSequence] = useState([]);
   const [sound, setSound] = useState('true');
   const [stage, setStage] = useState(0);
-  const [visible, setVisible] = useState('invisible')
+  const [viewAbout, setViewAbout] = useState('invisible')
+  const [viewGameStats, setViewGameStats] = useState('invisible')
 
   return (
     <div className="App">
@@ -23,20 +24,23 @@ function App() {
         score={score} setScore={setScore} 
         sound={sound} setSound={setSound}
         setCounter={setCounter} setSequence={setSequence}
-        visible={visible} setVisible={setVisible}
+        viewAbout={viewAbout} setViewAbout={setViewAbout}
         setPlayInfo={setPlayInfo}
       />
       
       <Challenger 
-      stage={stage} setStage={setStage}
-      score={score} setScore={setScore} 
-      counter={counter} setCounter={setCounter} 
-      sequence={sequence} setSequence={setSequence}
-      sound={sound} setPlayInfo={setPlayInfo}/>
+        stage={stage} setStage={setStage}
+        score={score} setScore={setScore} 
+        counter={counter} setCounter={setCounter} 
+        sequence={sequence} setSequence={setSequence}
+        sound={sound} setPlayInfo={setPlayInfo}
+      />
       
       <PlayInfo 
-      playInfo={playInfo} setPlayInfo={setPlayInfo}
-      setStage={setStage} setSequence={setSequence} setCounter={setCounter} setScore={setScore}/>
+        playInfo={playInfo} setPlayInfo={setPlayInfo}
+        setStage={setStage} setSequence={setSequence} setCounter={setCounter} setScore={setScore}
+        viewGameStats={viewGameStats} setViewGameStats={setViewGameStats}
+      />
     </div>
   );
 }

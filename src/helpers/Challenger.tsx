@@ -1,5 +1,3 @@
-import { startGame } from "./GameControls"
-
 // Buttons behavior
 const playSound = (n: number) => {
   const tones = ['E-4', 'A-4', 'Csharp-4', 'E-3']
@@ -76,17 +74,4 @@ const userClick = function(event: any, sequence: Array<number>, sound: boolean,
   }
 }
 
-// Player actions
-
-const resetInfo = (setStage: React.Dispatch<React.SetStateAction<number>>,
-  setSequence: React.Dispatch<React.SetStateAction<Array<number>>>, 
-  setCounter: React.Dispatch<React.SetStateAction<number>>, 
-  setScore: React.Dispatch<React.SetStateAction<number>>
-  ) => {
-  startGame(setSequence, setCounter, setScore, setStage);
-  localStorage.setItem('bestScore', '0');
-  localStorage.setItem('timesPlayed', '0');
-  setStage(0);
-}
-
-export { showSequence, stopSequence, resetInfo, userClick }
+export { showSequence, stopSequence, userClick }

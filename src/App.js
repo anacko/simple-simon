@@ -31,7 +31,7 @@ function App() {
       sequence={sequence} setSequence={setSequence}
       sound={sound}/>
       
-      <PlayerInfo />
+      <PlayerInfo setStage={setStage} setSequence={setSequence} setCounter={setCounter} setScore={setScore}/>
     </div>
   );
 }

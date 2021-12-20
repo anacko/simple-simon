@@ -1,23 +1,12 @@
 import { useEffect, useState } from "react";
-import { showSequence, resetInfo, userClick } from '../helpers/Challenger';
+import { showSequence, userClick } from '../helpers/Challenger';
+import { resetInfo } from '../helpers/PlayerInfo';
 import './Challenger.scss'
 
 const Challenger = function({counter, setCounter, score, setScore, sequence, setSequence, stage, setStage, sound}) {
 
   const [active, setActive] = useState(['', '', '', ''])
   const [unclickable, setUnclickable] = useState('')
-
-  const storedBestScore = Number(localStorage.getItem('bestScore'))
-  const [bestScore, setBestScore] = useState(
-    Number.isInteger(storedBestScore) ? storedBestScore : 0
-  )
-  const storedTimesPlayed = Number(localStorage.getItem('timesPlayed'))
-  const [timesPlayed, setTimesPlayed] = useState(
-    Number.isInteger(storedTimesPlayed) ? storedTimesPlayed : 0
-  )
-
-  useEffect(() => { localStorage.setItem('bestScore', String(bestScore)) }, [bestScore])
-  useEffect(() => { localStorage.setItem('timesPlayed', String(timesPlayed)) }, [timesPlayed])
 
   useEffect(() => {
     setSequence(prev => stage === 0 ? [] : [...prev, Math.floor(Math.random()*4)]) 
@@ -43,9 +32,6 @@ const Challenger = function({counter, setCounter, score, setScore, sequence, set
       </tr>
       </tbody>
     </table>
-    <h3>Best Score: {localStorage.getItem('bestScore') || 0}</h3>
-    <p>{localStorage.getItem('timesPlayed') || 0} {localStorage.getItem('timesPlayed') === '1' ? 'time' : 'times'} played</p>
-    <button onClick={() => resetInfo(setStage, setSequence, setCounter, setScore)}>Reset Info</button>
   </div>)
 };
 

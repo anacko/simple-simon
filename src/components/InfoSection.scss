@@ -2,8 +2,9 @@
 
 .info-section {
   width: $challenger-size;
-  height: $challenger-size;
+  min-height: $challenger-size;
   padding: 0.5em;
+  margin: 0.5em;
   
   border-width: 3px;
   border-style: outset;
@@ -12,4 +13,23 @@
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+article {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 2%;
+}
+
+.info-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.close-button {
+  align-self: flex-end;
 }

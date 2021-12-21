@@ -1,7 +1,6 @@
 @import './style-variables.scss';
 
 .App {
-  text-align: center;
   background-color: $app-color;
   min-height: 100vh;
   display: flex;
@@ -12,5 +11,9 @@
 }
 
 p {
+  margin: 0.2em;
+}
+
+h3 {
   margin: 0.5em;
 }

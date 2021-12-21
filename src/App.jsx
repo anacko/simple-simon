@@ -55,7 +55,6 @@ function App() {
       
       <PlayInfo 
         playInfo={playInfo} setPlayInfo={setPlayInfo}
-        setStage={setStage} setSequence={setSequence} setCounter={setCounter} setScore={setScore}
         viewComponents={viewComponents} setViewComponents={setViewComponents}
       />
 

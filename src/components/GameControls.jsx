@@ -21,13 +21,13 @@ function GameControls({stage, setStage, score, setScore, setCounter, setSequence
   const unmuteSound = <img type="button" src={unmute} width="40" height="40" alt="Unmute" title="Unmute"
     onClick={() => setSound(true)}/>
 
-  const showAbout = <img type="button" src={info} width="40" height="40" alt="About" title="About"
-    onClick={() => setViewComponents(viewComponents === 'About' ? 'Challenger' : 'About')}/>
+  const showGameInfo = <img type="button" src={info} width="40" height="40" alt="Game Info" title="Game Info"
+    onClick={() => setViewComponents(viewComponents === 'Game Info' ? 'Challenger' : 'Game Info')}/>
 
   return (<div className="buttons-container">
       {sound ? muteSound : unmuteSound}
       {stage ? stopRound : startRound}
-      {showAbout}
+      {showGameInfo}
   </div>);
 }
 

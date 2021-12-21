@@ -2,18 +2,14 @@ import { useEffect, useState } from "react";
 import { showSequence, userClick } from '../helpers/Challenger';
 import './Challenger.scss'
 
-const Challenger = function({counter, setCounter, score, setScore, sequence, setSequence, stage, setStage, sound, setPlayInfo}) {
+const Challenger = function({ counter, setCounter, score, setScore, sequence, setSequence, 
+  stage, setStage, sound, setPlayInfo }) {
 
   const [active, setActive] = useState(['', '', '', ''])
   const [unclickable, setUnclickable] = useState('')
 
-  useEffect(() => {
-    setSequence(prev => stage === 0 ? [] : [...prev, Math.floor(Math.random()*4)]) 
-  }, [stage])
-  
-  useEffect(() => {
-    showSequence(sequence, sound, setUnclickable, setActive)
-  }, [sequence])
+  useEffect(() => { setSequence(prev => stage === 0 ? [] : [...prev, Math.floor(Math.random()*4)]) }, [stage])
+  useEffect(() => { showSequence(sequence, sound, setUnclickable, setActive) }, [sequence])
 
   const handleClick = (event) => userClick(event, sequence, sound, counter, score, stage, setCounter, setScore, setStage, setPlayInfo)
 

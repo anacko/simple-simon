@@ -3,6 +3,8 @@ import './App.scss';
 import GameControls from './components/GameControls';
 import Challenger from './components/Challenger';
 import PlayInfo from './components/PlayInfo';
+import GameInfoSection from './components/GameInfoSection';
+import PlayInfoSection from './components/PlayInfoSection';
 import { getInfo } from './helpers/PlayInfo';
 
 function App() {
@@ -14,7 +16,7 @@ function App() {
   const [sound, setSound] = useState('true');
   const [stage, setStage] = useState(0);
 
-  const [viewComponents, setViewComponents] = useState(['Challenger'])
+  const [viewComponents, setViewComponents] = useState('Challenger')
 
   return (
     <div className="App">
@@ -27,8 +29,13 @@ function App() {
         viewComponents={viewComponents} setViewComponents={setViewComponents}
         setPlayInfo={setPlayInfo}
       />
+
+      {viewComponents === 'Game Info' && 
+        <GameInfoSection 
+          viewComponents={viewComponents} setViewComponents={setViewComponents}
+        />}
       
-      {viewComponents.includes('Challenger') &&
+      {viewComponents === 'Challenger' &&
       <Challenger 
         stage={stage} setStage={setStage}
         score={score} setScore={setScore} 
@@ -37,10 +44,17 @@ function App() {
         sound={sound} setPlayInfo={setPlayInfo}
       />
       }
+
+      {viewComponents === 'Play Info' && 
+      <PlayInfoSection 
+        viewComponents={viewComponents} setViewComponents={setViewComponents}
+        playInfo={playInfo} setPlayInfo={setPlayInfo} 
+        setStage={setStage} setSequence={setSequence}
+        setCounter={setCounter} setScore={setScore}
+      />}
       
       <PlayInfo 
         playInfo={playInfo} setPlayInfo={setPlayInfo}
-        setStage={setStage} setSequence={setSequence} setCounter={setCounter} setScore={setScore}
         viewComponents={viewComponents} setViewComponents={setViewComponents}
       />
 

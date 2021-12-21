@@ -1,9 +1,9 @@
-import About from "./About";
 import { startGame, stopGame } from '../helpers/GameControls';
 import play from '../imgs/_128-play-button.png'
 import stop from '../imgs/_128-stop.png'
 import mute from '../imgs/_128-mute.png'
 import unmute from '../imgs/_128-speaker.png'
+import info from '../imgs/_128-info.png'
 import './GameControls.scss'
 
 function GameControls({stage, setStage, score, setScore, setCounter, setSequence, 
@@ -18,13 +18,16 @@ function GameControls({stage, setStage, score, setScore, setCounter, setSequence
   const muteSound = <img type="button" src={mute} width="40" height="40" alt="Mute" title="Mute"
     onClick={() => setSound(false)}/>
 
-  const unmuteSound = <img type="button" src={unmute} width="40" height="40" alt="Mute" title="Unmute"
+  const unmuteSound = <img type="button" src={unmute} width="40" height="40" alt="Unmute" title="Unmute"
     onClick={() => setSound(true)}/>
+
+  const showGameInfo = <img type="button" src={info} width="40" height="40" alt="Game Info" title="Game Info"
+    onClick={() => setViewComponents(viewComponents === 'Game Info' ? 'Challenger' : 'Game Info')}/>
 
   return (<div className="buttons-container">
       {sound ? muteSound : unmuteSound}
       {stage ? stopRound : startRound}
-      <About viewComponents={viewComponents} setViewComponents={setViewComponents}/>
+      {showGameInfo}
   </div>);
 }
 

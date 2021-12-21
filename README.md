@@ -51,13 +51,15 @@ According to [Wikipedia](https://en.wikipedia.org/wiki/Simon_(game)#Gameplay), "
 
 I used the following tones in this project.
 
-Color|Tone|Frequency(Hz)
----|---|---
-Green|E4|329.628
-Red|A4|440
-Yellow|C♯4|277.183
-Blue|E3|164.814
+Color|Note|Tone|Frequency(Hz)
+---|---|---|---
+Green|E-note|E4|329.628
+Yellow|C♯|C♯5|554.365
+Red|A-note|A4|440
+Blue|E-note|E5|659.255
 
 Sources:
+* [Chords, Notes and Frequencies](https://github.com/anacko/simple-simon/blob/master/docs/imgs/Example-211220.png)
+* [A major triad chord](http://m.basicmusictheory.com/a-major-triad-chord)
 * [Online Tone Generator](https://www.szynalski.com/tone-generator/) for getting the frequencies for each note.
-* [Sine Tone Generator](https://www.audiocheck.net/audiofrequencysignalgenerator_sinetone.php) for generating the sound files. Configurations: Hz according to each tone frequency, 0 dBFS, 0.6s, 32hHz.
+* [Sine Tone Generator](https://www.audiocheck.net/audiofrequencysignalgenerator_sinetone.php) for generating the sound files. Configurations: Hz according to each tone frequency, 0 dBFS, 0.6s, 32kHz.

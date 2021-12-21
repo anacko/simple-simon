@@ -1,11 +1,10 @@
 @import '../style-variables.scss';
 
 .challenger-container {
-  background-color: $app-color;
-  width: 1.2*$challenger-size;
-  padding: $border-size;
-  margin-left: auto;
-  margin-right: auto;
+  width: $challenger-size;
+  height: $challenger-size;
+  padding: 0.5em;
+  margin: 0.5em;
 }
 
 .container {

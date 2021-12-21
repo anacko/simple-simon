@@ -3,7 +3,7 @@ import { setInfo, updateInfo } from "./PlayInfo";
 
 // Buttons behavior
 const playSound = (n: number) => {
-  const tones = ['E-4', 'A-4', 'Csharp-4', 'E-3']
+  const tones = ['E-5', 'A-4', 'Csharp-5', 'E-4'] // green-red-yellow-blue
   const audio = new Audio(`sound/${tones[n]}.wav`)
   return audio.play()
 }

@@ -53,7 +53,7 @@ I used the following tones in this project.
 
 Color|Note|Tone|Frequency(Hz)
 ---|---|---|---
-Green|E-note (an octave lower than blue)|E4|329.628
+Green|E-note|E4|329.628
 Yellow|C♯|C♯5|554.365
 Red|A-note|A4|440
 Blue|E-note|E5|659.255

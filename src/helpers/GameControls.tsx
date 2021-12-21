@@ -23,15 +23,4 @@ const stopGame = (score: number,
   setInfo(updateInfo(score), setPlayInfo);
 }
 
-const toggleAbout = (viewComponents: Array<string>,
-  setViewComponents: React.Dispatch<React.SetStateAction<Array<string>>>) => {
-  if (viewComponents.includes('About')) {
-    const newComponents: Array<string> = [];
-    viewComponents.map((elem: string) => elem !== 'About' ? newComponents.push(elem) : null);
-    setViewComponents([...newComponents]);
-  } else {
-    setViewComponents([...viewComponents, 'About']);
-  }
-};
-
-export { startGame, stopGame, toggleAbout }
+export { startGame, stopGame }

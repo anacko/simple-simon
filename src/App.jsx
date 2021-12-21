@@ -3,6 +3,7 @@ import './App.scss';
 import GameControls from './components/GameControls';
 import Challenger from './components/Challenger';
 import PlayInfo from './components/PlayInfo';
+import About from './components/About';
 import { getInfo } from './helpers/PlayInfo';
 
 function App() {
@@ -27,6 +28,8 @@ function App() {
         viewComponents={viewComponents} setViewComponents={setViewComponents}
         setPlayInfo={setPlayInfo}
       />
+
+      {viewComponents.includes('About')? <About /> : null}
       
       {viewComponents.includes('Challenger') &&
       <Challenger 

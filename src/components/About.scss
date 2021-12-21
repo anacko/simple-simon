@@ -1,13 +1,10 @@
 @import '../style-variables.scss';
 
 .about-section {
-  width: 0.9*$challenger-size;
-  padding: 10px;
-  position: absolute;
-  z-index: 100;
+  width: $challenger-size;
+  padding: 0.5em;
   
-  background-color: #808080;
-  border-width: 5px;
+  border-width: 3px;
   border-style: outset;
   border-color: #606060;
   border-radius: 15px;
@@ -18,8 +15,4 @@
   &.invisible {
     display: none;
     }
-}
-
-p {
-  margin: 0.5em;
 }

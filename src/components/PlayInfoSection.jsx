@@ -17,6 +17,7 @@ function PlayInfoSection({setStage, setSequence, setCounter, setScore, playInfo,
     <table>
       <tbody>
         <tr><td>Times Played:</td><td>{playInfo.timesPlayed}</td></tr>
+        <tr><td>Longest Sequence:</td><td>{playInfo.longestSequence}</td></tr>
         <tr><td>Best Score:</td><td>{playInfo.bestScore}</td></tr>
         <tr><td> </td><td> </td></tr>
       </tbody>

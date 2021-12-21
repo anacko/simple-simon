@@ -70,7 +70,7 @@ const userClick = (event: any, sequence: Array<number>, sound: boolean,
     }
   } else {
   // Wrong option
-    setInfo(updateInfo(score), setPlayInfo);
+    setInfo(updateInfo(score, counter, stage), setPlayInfo);
     setCounter(0);
     setStage(0);
     setScore(0);

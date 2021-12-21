@@ -56,8 +56,8 @@ Color|Tone|Frequency(Hz)
 Green|E4|329.628
 Red|A4|440
 Yellow|C♯4|277.183
-Blue|E3|164.814
+Blue|A3|220
 
 Sources:
 * [Online Tone Generator](https://www.szynalski.com/tone-generator/) for getting the frequencies for each note.
-* [Sine Tone Generator](https://www.audiocheck.net/audiofrequencysignalgenerator_sinetone.php) for generating the sound files. Configurations: Hz according to each tone frequency, 0 dBFS, 0.6s, 32hHz.
+* [Sine Tone Generator](https://www.audiocheck.net/audiofrequencysignalgenerator_sinetone.php) for generating the sound files. Configurations: Hz according to each tone frequency, 0 dBFS, 0.6s, 32kHz.

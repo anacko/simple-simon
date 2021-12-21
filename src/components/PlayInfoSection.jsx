@@ -22,9 +22,7 @@ function PlayInfoSection({setStage, setSequence, setCounter, setScore, playInfo,
       </tbody>
     </table>
     <h3>Reset Information?</h3>
-    <p>Progress is stored locally.</p>
-    <p>Press Reset All to reset it.</p>
-    <p>This action is irreversible.</p>
+    <p>Progress is stored locally.<br/>Press Reset All to reset it.<br/>This action is irreversible!</p>
     <button onClick={() => resetInfo(setStage, setSequence, setCounter, setScore, setPlayInfo)}>Reset All</button>
 
     </div>

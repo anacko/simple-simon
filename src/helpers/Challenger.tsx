@@ -24,23 +24,24 @@ const timeouts: Array<any> = [];
 const showSequence = (
   sequence: Array<number>, sound: boolean,
   setUnclickable: React.Dispatch<React.SetStateAction<string>>, 
-  setActive: React.Dispatch<React.SetStateAction<Array<string>>>
+  setActive: React.Dispatch<React.SetStateAction<Array<string>>>,
+  baseTimeMs: number = 600
   ) => {
 
   setTimeout(() => {
     setTimeout(() => {
       setUnclickable('unclickable')
-      timeouts.push(setTimeout(() => setUnclickable(''), sequence.length * 1200))
+      timeouts.push(setTimeout(() => setUnclickable(''), 2 * sequence.length * baseTimeMs))
     }, 0)
     
     for(let i = 0; i < sequence.length; i++) {
       timeouts.push(setTimeout(() => {
         makeActive(sequence[i], setActive)
         if (sound) { playSound(sequence[i]) }
-        setTimeout(() => setActive(['', '', '', '']), 600)
-      }, 1200*i))
+        setTimeout(() => setActive(['', '', '', '']), baseTimeMs)
+      }, 2 * i * baseTimeMs))
     }
-  }, 600)
+  }, baseTimeMs)
 }
 
 const stopSequence = () => {
@@ -70,7 +71,7 @@ const userClick = (event: any, sequence: Array<number>, sound: boolean,
     }
   } else {
   // Wrong option
-    setInfo(updateInfo(score), setPlayInfo);
+    setInfo(updateInfo(score, counter, stage), setPlayInfo);
     setCounter(0);
     setStage(0);
     setScore(0);

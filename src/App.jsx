@@ -25,7 +25,8 @@ function App() {
         stage={stage} setStage={setStage}
         score={score} setScore={setScore} 
         sound={sound} setSound={setSound}
-        setCounter={setCounter} setSequence={setSequence}
+        counter={counter} setCounter={setCounter} 
+        setSequence={setSequence}
         viewComponents={viewComponents} setViewComponents={setViewComponents}
         setPlayInfo={setPlayInfo}
       />

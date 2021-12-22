@@ -6,7 +6,9 @@ By starting the game with Start Game, the player is presented with a sequence of
 
 ## A simple screenshot
 
-![game_screenshot](https://github.com/anacko/simple-simon/blob/master/docs/imgs/Example-211220.png)
+![game_screenshot](https://github.com/anacko/simple-simon/blob/master/docs/imgs/Example-211221-Challenger.png)
+![game_info](https://github.com/anacko/simple-simon/blob/master/docs/imgs/Example-211221-GameInfo.png)
+![play_info](https://github.com/anacko/simple-simon/blob/master/docs/imgs/Example-211221-PlayInfo.png)
 
 ## Development
 
@@ -26,13 +28,11 @@ Icons made by [Roundicons](https://www.flaticon.com/authors/roundicons)
 * Increasing sequence by one at each time the user completes the current sequence
 * Different light intensity for sequence presentation and option selection on mouse over
 * Anti-cheat mode: the player must wait for the whole sequence presentation before starting to select colors
-* Score and number of levels played persistent and stored locally
+* Score and number of levels played are persistent and stored locally
 
 ## Potential future additions
 
-* Sound effects to match.
 * More visual communication, such as "begin", "you have a high score" and "good game!".
-* About button, to explain the rules.
 * Starting routine for the match. Ex. one color at a time, then all colors at the same time, then a beep, than the match begins.
 * Ending routing for when the player loses. Ex. random fast blinking, as if the board is confused.
 * Difficulty levels - easy (faster presentation at the beginning of a long sequence), medium (current implementation), hard (random sequence at each stage).

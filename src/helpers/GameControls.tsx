@@ -14,13 +14,13 @@ const startGame = (
   setStage(1)
 }
 
-const stopGame = (score: number,
+const stopGame = (score: number, counter: number, stage: number,
   setStage: React.Dispatch<React.SetStateAction<number>>, 
   setPlayInfo: React.Dispatch<React.SetStateAction<object>>
   ) => {
   stopSequence();
   setStage(0);
-  setInfo(updateInfo(score), setPlayInfo);
+  setInfo(updateInfo(score, counter, stage), setPlayInfo);
 }
 
 export { startGame, stopGame }

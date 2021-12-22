@@ -9,14 +9,15 @@ import './InfoSection.scss'
 
 function GameInfoSection({ viewComponents, setViewComponents }) {
 
-  const startRound = <img type="button" src={play} width="20" height="20" alt="Play" title="Start Round" />
-  const stopRound = <img type="button" src={stop} width="20" height="20" alt="Stop" title="Stop Round"/>
-  const muteSound = <img type="button" src={mute} width="20" height="20" alt="Mute" title="Mute"/>
-  const unmuteSound = <img type="button" src={unmute} width="20" height="20" alt="Unmute" title="Unmute"/>
-  const showPlayInfo = <img type="button" src={medal} width="20" height="20" alt="Play Info" title="Play Info"/>
-  const showGameInfo = <img type="button" src={info} width="20" height="20" alt="Game Info" title="Game Info"/>
+  const startRound = <img src={play} width="20" height="20" alt="Play"/>
+  const stopRound = <img src={stop} width="20" height="20" alt="Stop"/>
+  const muteSound = <img src={mute} width="20" height="20" alt="Mute"/>
+  const unmuteSound = <img src={unmute} width="20" height="20" alt="Unmute"/>
+  const showPlayInfo = <img src={medal} width="20" height="20" alt="Play Info"/>
+  const showGameInfo = <img src={info} width="20" height="20" alt="Game Info"/>
+  const closeViewImg = <img src={close} width="20" height="20" alt="Close"/>
 
-  const closeView = <img type="button" className='close-button' src={close} width="20" height="20" alt="Medal" title="Best Score"
+  const closeView = <img type="button" className='close-button' src={close} width="20" height="20" alt="Close" title="Close"
     onClick={() => setViewComponents(viewComponents === 'Game Info' ? 'Challenger' : 'Game Info')}/>
 
   return (<div className="info-section">
@@ -30,7 +31,7 @@ function GameInfoSection({ viewComponents, setViewComponents }) {
     <div className="info-controls">{unmuteSound} Unmute sound.</div>
     <div className="info-controls">{showPlayInfo} Show play information.</div>
     <div className="info-controls">{showGameInfo} Show game information.</div>
-    <div className="info-controls">{closeView} Return to game.</div>
+    <div className="info-controls">{closeViewImg} Return to game.</div>
     </article>
 
     <h3>Instructions</h3>

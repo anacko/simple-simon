@@ -8,8 +8,14 @@ const Challenger = function({ counter, setCounter, score, setScore, sequence, se
   const [active, setActive] = useState(['', '', '', ''])
   const [unclickable, setUnclickable] = useState('')
 
-  useEffect(() => { setSequence(prev => stage === 0 ? [] : [...prev, Math.floor(Math.random()*4)]) }, [stage])
-  useEffect(() => { showSequence(sequence, sound, setUnclickable, setActive) }, [sequence])
+  useEffect(() => { 
+    setSequence(prev => stage === 0 ? [] : [...prev, Math.floor(Math.random()*4)]) 
+  }, [stage, setSequence])
+
+  useEffect(() => { 
+    showSequence(sequence, sound, setUnclickable, setActive)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sequence]) // sound is ommited on purpose, as mute/unmute would make the sequence run again due to component rerendering
 
   const handleClick = (event) => userClick(event, sequence, sound, counter, score, stage, setCounter, setScore, setStage, setPlayInfo)
 

@@ -7,7 +7,7 @@ import './InfoSection.scss'
 
 function PlayInfo({ playInfo, setPlayInfo, viewComponents, setViewComponents }) {
 
-  useEffect(() => { setInfo(playInfo, setPlayInfo) }, [playInfo])
+  useEffect(() => { setInfo(playInfo, setPlayInfo) }, [playInfo, setPlayInfo])
 
   const showPlayInfo = <img type="button" src={medal} width="40" height="40" alt="Play Info" title="Play Info"
     onClick={() => setViewComponents(viewComponents === 'Play Info' ? 'Challenger' : 'Play Info')}/>

@@ -4,6 +4,8 @@ This project is a simple version of [Simon](https://en.wikipedia.org/wiki/Simon_
 
 By starting the game with Start Game, the player is presented with a sequence of colors and have to input the same sequence in order to advance. Sequences increase randomly. Score for the match is displayed on the middle and increases each time the player chooses a correct option. When the player chooses a wrong option, the match ends. The number of times played increases and a new best score is registered, if the score is higher. That could be reset to zero with "reset info".
 
+## Play [here](https://anacko-simon.netlify.app/)!
+
 ## Screenshots
 
 ### Example Gameplay

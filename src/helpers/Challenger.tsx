@@ -31,7 +31,7 @@ const showSequence = (
   setTimeout(() => {
     setTimeout(() => {
       setUnclickable('unclickable')
-      timeouts.push(setTimeout(() => setUnclickable(''), 2 * sequence.length * baseTimeMs))
+      timeouts.push(setTimeout(() => setUnclickable(''), 2 * sequence.length * baseTimeMs - baseTimeMs))
     }, 0)
     
     for(let i = 0; i < sequence.length; i++) {

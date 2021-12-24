@@ -30,9 +30,10 @@ const resetInfo = (setStage: React.Dispatch<React.SetStateAction<number>>,
   setSequence: React.Dispatch<React.SetStateAction<Array<number>>>, 
   setCounter: React.Dispatch<React.SetStateAction<number>>, 
   setScore: React.Dispatch<React.SetStateAction<number>>,
-  setPlayInfo: React.Dispatch<React.SetStateAction<Object>>
+  setPlayInfo: React.Dispatch<React.SetStateAction<Object>>,
+  setIsRunning: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
-  startGame(setSequence, setCounter, setScore, setStage);
+  startGame(setSequence, setCounter, setScore, setStage, setIsRunning);
   setInfo({ bestScore: 0, longestSequence: 0, timesPlayed: 0 }, setPlayInfo);
   setStage(0);
 };

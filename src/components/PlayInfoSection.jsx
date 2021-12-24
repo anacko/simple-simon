@@ -4,7 +4,7 @@ import './GameControls.scss';
 import './InfoSection.scss'
 
 function PlayInfoSection({setStage, setSequence, setCounter, setScore, playInfo, setPlayInfo,
-  viewComponents, setViewComponents}) {
+  viewComponents, setViewComponents, setIsRunning}) {
     
   const closeView = <img type="button" className="close-button" src={close} width="20" height="20" alt="Close" title="Close"
     onClick={() => setViewComponents(viewComponents === 'Play Info' ? 'Challenger' : 'Play Info')}/>
@@ -24,7 +24,7 @@ function PlayInfoSection({setStage, setSequence, setCounter, setScore, playInfo,
     <p></p>
     <h3>Reset Information?</h3>
     <p>Progress is stored locally.<br/>Press Reset All to reset it.<br/>This action is irreversible!</p>
-    <button onClick={() => resetInfo(setStage, setSequence, setCounter, setScore, setPlayInfo)}>Reset All</button>
+    <button onClick={() => resetInfo(setStage, setSequence, setCounter, setScore, setPlayInfo, setIsRunning)}>Reset All</button>
 
     </div>
   </>);

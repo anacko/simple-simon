@@ -7,7 +7,7 @@ import info from '../imgs/_128-info.png'
 import './GameControls.scss'
 
 function GameControls({isRunning, setIsRunning, stage, setStage, score, setScore, counter, setCounter, setSequence, 
-  sound, setSound, setPlayInfo, viewComponents, setViewComponents}) {
+  sound, setSound, setPlayInfo, setViewComponents}) {
 
   const startRound = <img type="button" src={play} width="40" height="40" alt="Play" title="Start Round"
     onClick={() => startGame(setSequence, setCounter, setScore, setStage, setIsRunning)}/>

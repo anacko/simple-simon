@@ -29,7 +29,7 @@ function App() {
         sound={sound} setSound={setSound}
         counter={counter} setCounter={setCounter} 
         setSequence={setSequence}
-        viewComponents={viewComponents} setViewComponents={setViewComponents}
+        setViewComponents={setViewComponents}
         setPlayInfo={setPlayInfo}
       />
 

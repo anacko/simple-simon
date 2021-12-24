@@ -54,7 +54,8 @@ const userClick = (event: any, sequence: Array<number>, sound: boolean,
   setCounter: React.Dispatch<React.SetStateAction<number>>, 
   setScore: React.Dispatch<React.SetStateAction<number>>, 
   setStage: React.Dispatch<React.SetStateAction<number>>,
-  setPlayInfo: React.Dispatch<React.SetStateAction<object>>
+  setPlayInfo: React.Dispatch<React.SetStateAction<object>>,
+  setIsRunning: React.Dispatch<React.SetStateAction<boolean>>
   ) => {
 
   if (Number(event.target.id) === sequence[counter]) {
@@ -72,6 +73,7 @@ const userClick = (event: any, sequence: Array<number>, sound: boolean,
   } else {
   // Wrong option
     setInfo(updateInfo(score, counter, stage), setPlayInfo);
+    setIsRunning(false);
     setCounter(0);
     setStage(0);
     setScore(0);

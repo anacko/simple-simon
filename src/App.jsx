@@ -10,6 +10,7 @@ import { getInfo } from './helpers/PlayInfo';
 function App() {
 
   const [counter, setCounter] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
   const [playInfo, setPlayInfo] = useState(getInfo())
   const [score, setScore] = useState(0);
   const [sequence, setSequence] = useState([]);
@@ -22,12 +23,13 @@ function App() {
     <div className="App">
       <h1>Simple Simon Game</h1>
       <GameControls 
+        isRunning={isRunning} setIsRunning={setIsRunning}
         stage={stage} setStage={setStage}
         score={score} setScore={setScore} 
         sound={sound} setSound={setSound}
         counter={counter} setCounter={setCounter} 
         setSequence={setSequence}
-        viewComponents={viewComponents} setViewComponents={setViewComponents}
+        setViewComponents={setViewComponents}
         setPlayInfo={setPlayInfo}
       />
 
@@ -38,6 +40,7 @@ function App() {
       
       {viewComponents === 'Challenger' &&
       <Challenger 
+        isRunning={isRunning} setIsRunning={setIsRunning}
         stage={stage} setStage={setStage}
         score={score} setScore={setScore} 
         counter={counter} setCounter={setCounter} 
@@ -47,14 +50,16 @@ function App() {
       }
 
       {viewComponents === 'Play Info' && 
-      <PlayInfoSection 
-        viewComponents={viewComponents} setViewComponents={setViewComponents}
-        playInfo={playInfo} setPlayInfo={setPlayInfo} 
-        setStage={setStage} setSequence={setSequence}
-        setCounter={setCounter} setScore={setScore}
+      <PlayInfoSection
+      viewComponents={viewComponents} setViewComponents={setViewComponents}
+      playInfo={playInfo} setPlayInfo={setPlayInfo} 
+      setStage={setStage} setSequence={setSequence}
+      setCounter={setCounter} setScore={setScore}
+      setIsRunning={setIsRunning}
       />}
       
       <PlayInfo 
+        isRunning={isRunning} setIsRunning={setIsRunning} 
         playInfo={playInfo} setPlayInfo={setPlayInfo}
         viewComponents={viewComponents} setViewComponents={setViewComponents}
       />

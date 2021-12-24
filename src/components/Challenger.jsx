@@ -3,7 +3,7 @@ import { showSequence, userClick } from '../helpers/Challenger';
 import './Challenger.scss'
 
 const Challenger = function({ counter, setCounter, score, setScore, sequence, setSequence, 
-  stage, setStage, sound, setPlayInfo }) {
+  stage, setStage, sound, setPlayInfo, setIsRunning }) {
 
   const [active, setActive] = useState(['', '', '', ''])
   const [unclickable, setUnclickable] = useState('')
@@ -17,7 +17,8 @@ const Challenger = function({ counter, setCounter, score, setScore, sequence, se
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sequence]) // sound is ommited on purpose, as mute/unmute would make the sequence run again due to component rerendering
 
-  const handleClick = (event) => userClick(event, sequence, sound, counter, score, stage, setCounter, setScore, setStage, setPlayInfo)
+  const handleClick = (event) => userClick(event, sequence, sound, counter, score, stage, 
+    setCounter, setScore, setStage, setPlayInfo, setIsRunning)
 
   return (<div className="challenger-container">
     <table className="container">

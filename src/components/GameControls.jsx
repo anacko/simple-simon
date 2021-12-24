@@ -25,9 +25,9 @@ function GameControls({stage, setStage, score, setScore, counter, setCounter, se
     onClick={() => setViewComponents(viewComponents === 'Game Info' ? 'Challenger' : 'Game Info')}/>
 
   return (<div className="buttons-container">
-      {sound ? muteSound : unmuteSound}
-      {stage ? stopRound : startRound}
       {showGameInfo}
+      {stage ? stopRound : startRound}
+      {sound ? muteSound : unmuteSound}
   </div>);
 }
 
